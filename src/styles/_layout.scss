@@ -1,0 +1,19 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow-x: hidden;
+    font-family: 'Roboto', sans-serif;
+
+    @include dark {
+        background: $dsecondary-1;
+    }
+}
+
+a {
+    text-decoration: none;
+    color: unset;
+}

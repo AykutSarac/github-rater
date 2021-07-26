@@ -1,0 +1,44 @@
+// Light Colors
+$primary-1: #4285f4;
+$primary-2: #3367d6;
+$secondary-1: #ffffff;
+
+$black: #222222;
+$green: #0cce6b;
+$orange: #ffa400;
+$red: #ff4e42;
+$muted: #757575;
+
+// Dark Colors
+$dprimary-1: #1f1f1f;
+$dprimary-2: #161b22;
+$dsecondary-1: #121212;
+$dsecondary-2: #2d2d30;
+
+$dblack: #222222;
+$dgreen: #0cce6b;
+$dorange: #ffa400;
+$dred: #ff4e42;
+$dmuted: #757575;
+
+@mixin light() {
+    @media (prefers-color-scheme: light) {
+      @at-root #{selector-nest(':root:not([data-theme=light]):not([data-theme=dark])', &)} {
+        @content;
+      }
+    }
+    @at-root #{selector-nest(':root[data-theme=light]', &)} {
+      @content;
+    }
+  }
+  
+  @mixin dark() {
+    @media (prefers-color-scheme: dark) {
+      @at-root #{selector-nest(':root:not([data-theme=light]):not([data-theme=dark])', &)} {
+        @content;
+      }
+    }
+    @at-root #{selector-nest(':root[data-theme=dark]', &)} {
+      @content;
+    }
+  }

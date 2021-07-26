@@ -1,0 +1,38 @@
+#results {
+
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 4em;
+
+    .default {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 2em;
+        max-width: 768px;
+        line-height: 1.5;
+        color: $muted;
+
+        .header {
+            font-weight: bold;
+            display: block;
+            margin-bottom: .5em;
+            color: $black;
+
+            @include dark {
+                color: #e1e1e1;
+            }
+        }
+
+        a {
+            color: $primary-1;
+        }
+    }
+
+    @media screen and (max-width: 720px) {
+        .default {
+            display: flex;
+            flex-direction: column;
+        }
+    }
+}

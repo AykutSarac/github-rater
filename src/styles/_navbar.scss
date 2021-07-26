@@ -1,0 +1,65 @@
+.navbar {
+    padding: .8em 3em;
+    display: flex;
+    justify-content: space-between;
+
+    a {
+        color: $muted;
+        display: flex;
+        align-items: center;
+    }
+
+    .logo {
+        font-weight: bold;
+        font-size: 1.3rem;
+
+        .icon {
+            margin-right: .5em;
+            color: $primary-1;
+        }
+    }
+
+    .theme-toggler {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1.5em;
+        border-radius: 2em;
+        background: $muted;
+        padding: .6em 1em;
+        position: relative;
+
+        @include dark {
+            background: $secondary-1;
+        }
+
+        .picker {
+            position: absolute;
+            content: '';
+            width: 30px;
+            height: 30px;
+            background: $secondary-1;
+            left: 0;
+            top: .4em;
+            transform: translate(40%);
+            border-radius: 1em;
+            transition: .4s;
+
+            @include dark {
+                background: $dsecondary-1;
+            }
+
+        }
+
+        .icon {
+            color: $secondary-1;
+            cursor: pointer;
+
+            @include dark {
+                color: $dsecondary-1;
+            }
+        }
+
+    }
+
+}
