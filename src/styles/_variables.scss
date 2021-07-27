@@ -15,11 +15,6 @@ $dprimary-2: #161b22;
 $dsecondary-1: #121212;
 $dsecondary-2: #2d2d30;
 
-$dblack: #222222;
-$dgreen: #0cce6b;
-$dorange: #ffa400;
-$dred: #ff4e42;
-$dmuted: #757575;
 
 @mixin light() {
     @media (prefers-color-scheme: light) {

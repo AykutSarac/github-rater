@@ -56,7 +56,8 @@ export interface Repository {
 export interface UserState {
     user?: Object<User>,
     repos: Repository[],
-    loading?: Boolean
+    loading?: Boolean,
+    rating?: any
 }
 
 export interface RootState {
@@ -70,12 +71,21 @@ export interface IResult {
 }
 
 export interface Rating {
-    bioExists?: boolean,
-    locationExists?: boolean,
-    blogExists?: boolean,
-    userPopularity?: number,
-    repoPopularity?: number,
-    bioLength?: number,
-    repoDescriptionRating?: number,
-    webpageRating?: number,
+    bioExists: boolean,
+    blogExists: boolean,
+    locExists: boolean,
+    bioRating: number,
+    userPopularity: number,
+    repoPopularity: number,
+    repoDescriptionRating: number,
+    webpageRating: number,
+    totalStars: number,
+    totalForks: number,
+    repoCount: number
+}
+
+export interface IFResultObject {
+    Name: string,
+    Message: string,
+    Score: number
 }

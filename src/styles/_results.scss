@@ -5,6 +5,11 @@
     justify-content: center;
     padding: 4em;
 
+    .loading {
+        width: 100%;
+        display: block;
+    }
+
     .default {
         display: grid;
         grid-template-columns: repeat(2, 1fr);
@@ -26,6 +31,75 @@
 
         a {
             color: $primary-1;
+        }
+    }
+
+    .box {
+
+        .title {
+            display: flex;
+            justify-content: center;
+            margin: 1em auto;
+
+            @include dark {
+                color: $muted;
+            }
+        }
+        
+        .percent {
+            position: relative;
+            width: 130px;
+            height: 130px;
+
+            svg {
+                position: relative;
+                width: 130px;
+                height: 130px;
+
+                circle {
+                    width: 130px;
+                    height: 130px;
+                    fill-opacity: 10%;
+                    stroke-width: 8;
+                    stroke: #000;
+                    transform: translate(5px, 5px);
+                    stroke-dasharray: 377;
+                    stroke-dashoffset: 377;
+
+                    &:nth-child(1) {
+                        stroke-dashoffset: 0;
+                        stroke: none;
+                    }
+
+                    &:nth-child(2) {
+                        stroke-linecap: round;
+                    }
+                }
+            }
+
+            .number {
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                columns: #111;
+
+                h2 {
+                    font-size: 48px;
+                    color: $green;
+                }
+            }
+        }
+
+        .text {
+            padding: 10px 0 0;
+            color: #999;
+            font-weight: 700;
+            letter-spacing: 1px;
         }
     }
 

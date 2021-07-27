@@ -18,7 +18,7 @@ const ThemeToggler = () => {
         document.documentElement.setAttribute('data-theme', theme)
 
         if (theme === 'dark') {
-            elem.current.style.transform = 'translate(200%)';
+            elem.current.style.transform = 'translate(210%)';
         } else if (theme === 'light') {
             elem.current.style.transform = 'translate(40%)';
         }
@@ -40,8 +40,8 @@ const ThemeToggler = () => {
     return (
         <div className="theme-toggler">
             <div className="picker" ref={elem}></div>
-            <FaSun size={24} className="icon" onClick={onClick} />
-            <FaMoon size={24} className="icon" onClick={onClick} />
+            <FaSun size={20} className="icon" onClick={onClick} />
+            <FaMoon size={20} className="icon" onClick={onClick} />
         </div>
     )
 }

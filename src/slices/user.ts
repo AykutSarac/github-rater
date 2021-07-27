@@ -8,7 +8,8 @@ import { UserState } from '../types';
 export const initialState: UserState = {
     user: {},
     repos: [],
-    loading: true,
+    rating: {},
+    loading: false,
   }
 
 const userSlice = createSlice({
@@ -18,23 +19,30 @@ const userSlice = createSlice({
         setData: (state, { payload }: PayloadAction<any>) => {
             state.user = payload.user;
             state.repos = payload.repos;
+        },
+        setRating: (state, { payload }: PayloadAction<any>) => {
+            state.rating = payload
+        },
+        setLoading: (state, { payload }: PayloadAction<boolean>) => {
+            state.loading = payload
         }
     }
 });
 
-const { setData } = userSlice.actions
+const { setData, setRating, setLoading } = userSlice.actions
 export default userSlice.reducer
 
 
 export const getUser = (userName: string) => async (dispatch: Dispatch<any>) => {
     try {
+        dispatch(setLoading(true))
         const user = await GetUserData(userName);
-
-        console.log(user);
         
 
         if (user) {
-            new UserRating(user.user, user.repos).getResult()
+            const result = new UserRating(user.user, user.repos).getResult()
+            dispatch(setRating(result))
+            dispatch(setLoading(false))
         }
         dispatch(setData(user));
     } catch (err) {

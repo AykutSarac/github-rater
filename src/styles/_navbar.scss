@@ -1,65 +1,56 @@
 .navbar {
-    padding: .8em 3em;
+  padding: 0.5em 3em;
+  display: flex;
+  justify-content: space-between;
+
+  a {
+    color: $muted;
     display: flex;
-    justify-content: space-between;
+    align-items: center;
+  }
 
-    a {
+  .logo {
+    font-weight: bold;
+    font-size: 1.3rem;
+
+    .icon {
+      margin-right: 0.5em;
+      color: $primary-1;
+
+      @include dark {
         color: $muted;
-        display: flex;
-        align-items: center;
+      }
+    }
+  }
+
+  .theme-toggler {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5em;
+    border-radius: 2em;
+    background: #383838;
+    padding: 0.6em 1em;
+    position: relative;
+
+    .picker {
+      position: absolute;
+      content: "";
+      width: 26px;
+      height: 26px;
+      background: $secondary-1;
+      left: 0;
+      top: 0.4em;
+      transform: translate(40%);
+      border-radius: 1em;
+      transition: 0.4s;
+      filter: drop-shadow(0 0 2px #121212);
     }
 
-    .logo {
-        font-weight: bold;
-        font-size: 1.3rem;
-
-        .icon {
-            margin-right: .5em;
-            color: $primary-1;
-        }
+    .icon {
+      color: rgba(255, 255, 0, 0.637);
+      cursor: pointer;
+      -webkit-tap-highlight-color: transparent;
     }
-
-    .theme-toggler {
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        gap: 1.5em;
-        border-radius: 2em;
-        background: $muted;
-        padding: .6em 1em;
-        position: relative;
-
-        @include dark {
-            background: $secondary-1;
-        }
-
-        .picker {
-            position: absolute;
-            content: '';
-            width: 30px;
-            height: 30px;
-            background: $secondary-1;
-            left: 0;
-            top: .4em;
-            transform: translate(40%);
-            border-radius: 1em;
-            transition: .4s;
-
-            @include dark {
-                background: $dsecondary-1;
-            }
-
-        }
-
-        .icon {
-            color: $secondary-1;
-            cursor: pointer;
-
-            @include dark {
-                color: $dsecondary-1;
-            }
-        }
-
-    }
-
+  }
 }
