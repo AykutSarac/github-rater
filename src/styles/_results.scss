@@ -1,112 +1,141 @@
 #results {
+  width: 100%;
 
+  .alert {
     width: 100%;
+    margin-bottom: 4em;
+    text-align: left;
+    background: #eeeeee;
+    padding: 0.8em;
+
+    @include dark {
+      background: $dsecondary-2;
+      color: $dsecondary-3;
+    }
+
+    .highlight {
+      background: $secondary-1;
+      padding: 0.3em 0.5em;
+      border-radius: 2em;
+      margin-left: 0.6em;
+
+      @include dark {
+        background: $dprimary-2;
+        color: $dsecondary-3;
+      }
+    }
+
+    .highlight:hover {
+      filter: brightness(0.8);
+    }
+  }
+
+  .loading {
+    width: 100%;
+    margin: 4em;
+    display: block;
+  }
+
+  .show-results {
     display: flex;
     justify-content: center;
+  }
+
+  .default {
     padding: 4em;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2em;
+    max-width: 768px;
+    line-height: 1.5;
+    color: $muted;
+    margin: auto;
 
-    .loading {
-        width: 100%;
-        display: block;
+    .header {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5em;
+      color: $black;
+
+      @include dark {
+        color: #e1e1e1;
+      }
     }
 
+    a {
+      color: $primary-1;
+    }
+  }
+
+  .title {
+    display: flex;
+    justify-content: center;
+    margin: 1em auto;
+
+    @include dark {
+      color: $dsecondary-3;
+    }
+  }
+
+  .percent {
+    position: relative;
+    width: 130px;
+    height: 130px;
+
+    svg {
+      position: relative;
+      width: 130px;
+      height: 130px;
+
+      circle {
+        width: 130px;
+        height: 130px;
+        fill-opacity: 10%;
+        stroke-width: 8;
+        stroke: #000;
+        transform: translate(5px, 5px);
+        stroke-dasharray: 377;
+        stroke-dashoffset: 377;
+
+        &:nth-child(1) {
+          stroke-dashoffset: 0;
+          stroke: none;
+        }
+
+        &:nth-child(2) {
+          stroke-linecap: round;
+        }
+      }
+    }
+
+    .number {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      columns: #111;
+
+      h2 {
+        font-size: 48px;
+      }
+    }
+  }
+
+  .text {
+    padding: 10px 0 0;
+    color: #999;
+    font-weight: 700;
+    letter-spacing: 1px;
+  }
+
+  @media screen and (max-width: 720px) {
     .default {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 2em;
-        max-width: 768px;
-        line-height: 1.5;
-        color: $muted;
-
-        .header {
-            font-weight: bold;
-            display: block;
-            margin-bottom: .5em;
-            color: $black;
-
-            @include dark {
-                color: #e1e1e1;
-            }
-        }
-
-        a {
-            color: $primary-1;
-        }
+      display: flex;
+      flex-direction: column;
     }
-
-    .box {
-
-        .title {
-            display: flex;
-            justify-content: center;
-            margin: 1em auto;
-
-            @include dark {
-                color: $muted;
-            }
-        }
-        
-        .percent {
-            position: relative;
-            width: 130px;
-            height: 130px;
-
-            svg {
-                position: relative;
-                width: 130px;
-                height: 130px;
-
-                circle {
-                    width: 130px;
-                    height: 130px;
-                    fill-opacity: 10%;
-                    stroke-width: 8;
-                    stroke: #000;
-                    transform: translate(5px, 5px);
-                    stroke-dasharray: 377;
-                    stroke-dashoffset: 377;
-
-                    &:nth-child(1) {
-                        stroke-dashoffset: 0;
-                        stroke: none;
-                    }
-
-                    &:nth-child(2) {
-                        stroke-linecap: round;
-                    }
-                }
-            }
-
-            .number {
-                position: absolute;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                columns: #111;
-
-                h2 {
-                    font-size: 48px;
-                    color: $green;
-                }
-            }
-        }
-
-        .text {
-            padding: 10px 0 0;
-            color: #999;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-    }
-
-    @media screen and (max-width: 720px) {
-        .default {
-            display: flex;
-            flex-direction: column;
-        }
-    }
+  }
 }

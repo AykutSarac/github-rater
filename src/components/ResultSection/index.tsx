@@ -14,7 +14,6 @@ const ResultSection = () => {
 
 
     useEffect(() => {
-
         if (rating.length > 0) {
             setResults(rating)
         }
