@@ -22,7 +22,7 @@ const LabResults = ({ results }: IProps) => {
     const displayList = () => results.map((result, idx) => (
         <div className="metric-wrapper" key={idx}>
             <span className="metric-title">
-                { generateIcon(result.Score) } { result.Name}
+                {generateIcon(result.Score)} {result.Name}
             </span>
             <span className={`metric-result ${generateResult(result.Score)}`}>
                 {result.Score}
@@ -35,9 +35,7 @@ const LabResults = ({ results }: IProps) => {
             <div className="metric-container">
                 <h3>Lab Results</h3>
                 <div className="metric-grid"></div>
-                {
-                    displayList()
-                }
+                {displayList()}
             </div>
         </div>
     )

@@ -21,12 +21,14 @@ const ResultSection = () => {
         <section id="results">
             {
                 user?.login ? (
-                <Alert>
-                    Results for user: <a href={user.html_url} target="_blank" rel="noreferrer" className="highlight">{user.login}</a>
-                </Alert>) : error && <Alert>{ error } </Alert>
+                    <Alert>
+                        Results for user: <a href={user.html_url} target="_blank" rel="noreferrer" className="highlight">{user.login}</a>
+                    </Alert>
+                ) : error && <Alert>{error}</Alert>
             }
+            {loading && <Loading />}
             {
-                loading ? <Loading /> : (results.length > 0 ? <Results results={results} /> : error ? <NotFound /> : <Default />)
+                results.length > 0 ? <Results results={results} /> : error ? <NotFound /> : <Default />
             }
         </section>
     )

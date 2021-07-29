@@ -1,6 +1,6 @@
-import React from 'react'
-import { useEffect } from 'react';
-import { useState } from 'react'
+import React, { useEffect, useState } from 'react'
+import { IoTriangle, IoSquareSharp } from 'react-icons/io5'
+import { FaCircle } from 'react-icons/fa'
 
 interface props {
     percentage?: number,
@@ -18,7 +18,7 @@ const ProgressBar = ({ percentage = 0, title }: props) => {
     }, [percentage])
 
     return (
-        <div className="box">
+        <div className="progressbar">
             <div className="percent">
                 <svg>
                     <circle cx="60" cy="60" r="60"></circle>
@@ -29,10 +29,21 @@ const ProgressBar = ({ percentage = 0, title }: props) => {
                     }}></circle>
                 </svg>
                 <div className="number">
-                    <h2 style={{ color }}>{percentage}</h2>
+                    <span style={{ color }}>{percentage}</span>
                 </div>
             </div>
             <h2 className="title">{title}</h2>
+            <div className="info">
+                <div>
+                    <IoTriangle size={15} className="danger" /> 0-49
+                </div>
+                <div>
+                    <IoSquareSharp size={15} className="warning" /> 50-89
+                </div>
+                <div>
+                    <FaCircle size={13} className="success" /> 90-100
+                </div>
+            </div>
         </div>
     )
 }
