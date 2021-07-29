@@ -2,6 +2,7 @@ import React from 'react'
 import { IoTriangle, IoSquareSharp } from 'react-icons/io5'
 import { FaCircle } from 'react-icons/fa'
 import { IFResultObject } from '../../../types'
+import Opportunuties from './Opportunuties'
 
 interface IProps {
     results: IFResultObject[]
@@ -14,7 +15,7 @@ const LabResults = ({ results }: IProps) => {
     const generateIcon = (percent: number) => {
         return (
             percent >= 90 ? <FaCircle size={13} className="success" />
-                : percent >= 50 ? <IoSquareSharp size={15} className="warning" />
+                : percent >= 50 ? <IoSquareSharp size={14} className="warning" />
                     : <IoTriangle size={15} className="danger" />
         )
     }
@@ -32,11 +33,17 @@ const LabResults = ({ results }: IProps) => {
 
     return (
         <div className="lab-results">
-            <div className="metric-container">
-                <h3>Lab Results</h3>
-                <div className="metric-grid"></div>
-                {displayList()}
+            <div className="labdata">
+                <div className="metric-container">
+                    <h4>Lab Results</h4>
+                    <div className="metric-grid"></div>
+                    {displayList()}
+                </div>
+                <div className="muted results-info">
+                    Values are estimated and may vary. The <a href="https://github.com/AykutSarac/github-rater">performance score is calculated</a> directly <br /> from these metrics.
+                </div>
             </div>
+            <Opportunuties />
         </div>
     )
 }

@@ -1,33 +1,6 @@
 #results {
   width: 100%;
 
-  .alert {
-    width: 100%;
-    margin-bottom: 4em;
-    text-align: left;
-    background: #eeeeee;
-    padding: 0.8em;
-
-    @include dark {
-      background: $dsecondary-2;
-    }
-
-    .highlight {
-      background: $secondary-1;
-      padding: 0.3em 0.5em;
-      border-radius: 2em;
-      margin-left: 0.6em;
-
-      @include dark {
-        background: $dprimary-2;
-      }
-    }
-
-    .highlight:hover {
-      filter: brightness(0.8);
-    }
-  }
-
   .loading {
     width: 80%;
     margin: 4em auto;
@@ -69,6 +42,10 @@
 
       a {
         color: $primary-1;
+
+        @include dark {
+          color: $primary-2;
+        }
       }
     }
   }

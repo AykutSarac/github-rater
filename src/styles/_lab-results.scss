@@ -1,8 +1,62 @@
 .lab-results {
-  margin-bottom: 3em;
+  margin: 3em auto;
 
-  h3 {
+  .opportunities {
+    margin-top: 3em;
+
+    ul {
+      list-style: none;
+      margin-top: .6em;
+
+      li {
+        width: 100%;
+        padding: 0.6em .3em;
+        border-top: 1px solid $dtext-2;
+        font-weight: 500;
+        cursor: pointer;
+
+        svg {
+          margin-right: .5em;
+        }
+
+        .data {
+          padding: 1em;
+          font-weight: 400;
+          max-width: 38rem;
+          display: none;
+          color: $muted;
+        }
+
+        .data.show {
+          display: block;
+        }
+
+        &:nth-last-child(1) {
+          border-bottom: 1px solid $dtext-2;
+        }
+
+        &:hover {
+          background: #eeeeee;
+
+          @include dark {
+            background: $dsecondary-2;
+          }
+        }
+      }
+    }
+  }
+
+  .results-info {
     margin: 1em 0;
+    max-width: 100%;
+
+    a {
+      color: $primary-2;
+    }
+  }
+
+  h4 {
+    margin: 1.5em 0;
   }
 
   .metric-container {
@@ -18,7 +72,8 @@
       font-weight: 500;
       align-items: center;
 
-      &:nth-last-child(1), &:nth-last-child(2) {
+      &:nth-last-child(1),
+      &:nth-last-child(2) {
         border-bottom: 1px solid $dheading;
       }
 
@@ -45,6 +100,12 @@
     .metric-container {
       display: flex;
       flex-direction: column;
+    }
+
+    .metric-wrapper {
+      &:nth-last-child(2) {
+        border-bottom: none !important;
+      }
     }
   }
 }

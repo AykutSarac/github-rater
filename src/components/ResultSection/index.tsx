@@ -26,11 +26,13 @@ const ResultSection = () => {
                     </Alert>
                 ) : error && <Alert>{error}</Alert>
             }
-            {loading && <Loading />}
-            {
-                results.length > 0 ? <Results results={results} /> : error && <NotFound />
-            }
-            <Default />
+            <div className="results-wrapper">
+                {loading && <Loading />}
+                {
+                    results.length > 0 ? <Results results={results} /> : error && <NotFound />
+                }
+                <Default />
+            </div>
         </section>
     )
 }

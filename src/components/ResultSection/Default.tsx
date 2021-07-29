@@ -14,7 +14,7 @@ const Default = () => {
                 </div>
                 <div>
                     <span className="header">Help Us Improving Accuracy</span>
-                    We're doing our best to write the best algorithm in order to accurately rate your GitHub profile. We appreciate your contributions towards this, see our <a href="#!" target="_blank" rel="noreferrer">GitHub repository</a> here to learn how you can help us.
+                    We're doing our best to write the best algorithm in order to accurately rate your GitHub profile. We appreciate your contributions, see our <a href="#!" target="_blank" rel="noreferrer">GitHub repository</a> here to learn how you can help us.
                 </div>
                 <div>
                     <span className="header">Check GitHub Repository</span>

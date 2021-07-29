@@ -14,6 +14,34 @@ body {
   }
 }
 
+.alert {
+  width: 100%;
+  text-align: left;
+  background: #eeeeee;
+  padding: 0.8em;
+  margin-bottom: 4em;
+
+  @include dark {
+    background: $dsecondary-2;
+  }
+
+  .highlight {
+    background: $secondary-1;
+    padding: 0.3em 0.5em;
+    border-radius: 2em;
+    margin-left: 0.6em;
+    font-weight: 500;
+
+    @include dark {
+      background: $dprimary-2;
+    }
+  }
+
+  .highlight:hover {
+    filter: brightness(0.8);
+  }
+}
+
 a {
   text-decoration: none;
   color: unset;
@@ -45,6 +73,10 @@ a {
 
 .danger {
   color: $red;
+}
+
+.muted {
+  color: $muted;
 }
 
 div {
