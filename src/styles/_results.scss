@@ -46,24 +46,31 @@
   }
 
   .default {
-    padding: 4em;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2em;
-    max-width: 768px;
-    line-height: 1.5;
-    color: $muted;
-    margin: auto;
+    border-top: 1px solid $dheading;
+    width: 100%;
 
-    .header {
-      font-weight: bold;
-      display: block;
-      margin-bottom: 0.5em;
-      color: $black;
-    }
+    .default-wrapper {
+      margin: auto;
+      width: 100%;
+      padding: 4em;
+      display: grid;
+      justify-content: center;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2em;
+      max-width: 768px;
+      line-height: 1.5;
+      color: $muted;
 
-    a {
-      color: $primary-1;
+      .header {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 0.5em;
+        color: $black;
+      }
+
+      a {
+        color: $primary-1;
+      }
     }
   }
 

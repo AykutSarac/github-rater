@@ -49,13 +49,13 @@ a {
 
 div {
   @include dark {
-    border-color: $dsecondary-2;
+    border-color: $dsecondary-2 !important;
   }
 }
 
 .metric-wrapper {
   @include dark {
-    border-color: $dtext-2;
+    border-color: $muted !important;
   }
 }
 

@@ -28,8 +28,9 @@ const ResultSection = () => {
             }
             {loading && <Loading />}
             {
-                results.length > 0 ? <Results results={results} /> : error ? <NotFound /> : <Default />
+                results.length > 0 ? <Results results={results} /> : error && <NotFound />
             }
+            <Default />
         </section>
     )
 }
