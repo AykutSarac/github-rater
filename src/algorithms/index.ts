@@ -74,27 +74,24 @@ export class UserRating {
         this.rating.userPopularity = res >= 100 ? 100 : res
     }
 
-    rateStars() {
+    rateRepoPopularity() {
 
         // Total Stars
         const TOTAL_STARS = this.repos.map(r => r.stargazers_count).reduce((a, b) => a + b)
         const TOTAL_FORKS = this.repos.map(r => r.forks_count).reduce((a, b) => a + b)
 
-        const rate = (TOTAL_STARS + TOTAL_FORKS * 1.2) / this.repos.length
-        const res = parseInt((rate * 15).toFixed(0));
+        const rate = (TOTAL_STARS + (TOTAL_FORKS * 1.2)) / this.repos.length
+        const res = parseInt((rate * 16).toFixed(0));
         this.rating.repoPopularity = res >= 100 ? 100 : res;
     }
 
     rateRepoDescription() {
 
         // Repository Description Rating
-        const repoDescLength = this.repos.map(r => {
-            const length = r.description?.split(' ').length || 0;
+        const repoDescLength = this.repos.filter(r => r.description?.split(' ').length > 4);
 
-            return (length < 4) ? 0 : 1;
-        });
         const rate = (this.repos.length / repoDescLength.length)
-        const res = parseInt((rate * 100).toFixed(0));
+        const res = parseInt((100 / rate).toFixed(0));
         this.rating.repoDescriptionRating = res >= 100 ? 100 : res;
     }
 
@@ -116,7 +113,7 @@ export class UserRating {
         const blog = this.rating.blogExists ? 1 : 0;
         const company = this.rating.companyExists ? 1 : 0;
 
-        
+
         const rate = (bio + loc + blog + company) / 4;
         this.rating.backlinkRating = rate * 100;
     }
@@ -127,7 +124,7 @@ export class UserRating {
         this.rateCountry()
         this.ratePopularity()
         this.rateRepoDescription()
-        this.rateStars()
+        this.rateRepoPopularity()
         this.rateWebpage()
         this.rateBacklinks()
 
