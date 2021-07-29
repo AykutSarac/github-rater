@@ -1,7 +1,7 @@
 import React from 'react'
 import { IoTriangle, IoSquareSharp } from 'react-icons/io5'
 import { FaCircle } from 'react-icons/fa'
-import { IFResultObject } from '../../types'
+import { IFResultObject } from '../../../types'
 
 interface IProps {
     results: IFResultObject[]

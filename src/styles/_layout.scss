@@ -1,19 +1,35 @@
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    overflow-x: hidden;
-    font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+  font-family: "Roboto", sans-serif;
 
-    @include dark {
-        background: $dsecondary-1;
-    }
+  @include dark {
+    background: $dsecondary-1;
+  }
 }
 
 a {
-    text-decoration: none;
-    color: unset;
+  text-decoration: none;
+  color: unset;
+}
+
+.notfound {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+
+  img {
+    width: 400px;
+    height: auto;
+
+    @include dark {
+        filter: invert(.5);
+    }
+  }
 }

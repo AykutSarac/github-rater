@@ -1,7 +1,7 @@
 import React from 'react'
-import { IFResultObject } from '../../types';
+import { IFResultObject } from '../../../types';
 import LabResults from './LabResults';
-import ProgressBar from '../Layout/ProgressBar';
+import ProgressBar from '../../Layout/ProgressBar';
 
 interface IResults {
     results: IFResultObject[]

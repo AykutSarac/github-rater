@@ -3,6 +3,7 @@ import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { getUser } from '../../selectors'
 import Alert from '../Layout/Alert'
+import NotFound from '../Layout/NotFound'
 import Default from './Default'
 import Loading from './Loading'
 import Results from './Results'
@@ -25,7 +26,7 @@ const ResultSection = () => {
                 </Alert>) : error && <Alert>{ error } </Alert>
             }
             {
-                loading ? <Loading /> : (results.length > 0 ? <Results results={results} /> : <Default />)
+                loading ? <Loading /> : (results.length > 0 ? <Results results={results} /> : error ? <NotFound /> : <Default />)
             }
         </section>
     )
