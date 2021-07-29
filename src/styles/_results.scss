@@ -50,10 +50,9 @@
     width: 100%;
 
     .default-wrapper {
-      margin: auto;
-      width: 100%;
-      padding: 4em;
       display: grid;
+      margin: auto;
+      padding: 4em;
       justify-content: center;
       grid-template-columns: repeat(2, 1fr);
       gap: 2em;
@@ -82,8 +81,8 @@
   }
 
   @media screen and (max-width: 720px) {
-    .default {
-      display: flex;
+    .default-wrapper {
+      display: flex !important;
       flex-direction: column;
     }
   }
