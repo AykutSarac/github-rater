@@ -12,9 +12,9 @@ const ProgressBar = ({ percentage = 0, title }: props) => {
     const [color, setColor] = useState('#0cce6b');
 
     useEffect(() => {
-        if (percentage > 75 && percentage <= 100) return setColor('#0cce6b');
-        if (percentage > 50 && percentage <= 75) return setColor('#ffa400');
-        if (percentage > 0 && percentage <= 50) return setColor('#ff4e42');
+        if (percentage >= 90) return setColor('#0cce6b');
+        if (percentage >= 50) return setColor('#ffa400');
+        return setColor('#ff4e42');
     }, [percentage])
 
     return (

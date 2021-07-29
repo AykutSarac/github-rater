@@ -7,6 +7,10 @@
     color: $muted;
     display: flex;
     align-items: center;
+
+    @include dark {
+      color: $dheading;
+    }
   }
 
   .logo {
@@ -18,7 +22,7 @@
       color: $primary-1;
 
       @include dark {
-        color: $muted;
+        color: $dheading;
       }
     }
   }

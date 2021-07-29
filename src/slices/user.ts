@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Dispatch } from 'react';
 import { UserRating } from '../algorithms';
 import { GetUserData } from '../api';
-import { UserState } from '../types';
+import { Repository, User, UserState } from '../types';
 
 
 export const initialState: UserState = {
@@ -10,6 +10,7 @@ export const initialState: UserState = {
     repos: [],
     rating: {},
     loading: false,
+    error: null
   }
 
 const userSlice = createSlice({
@@ -25,27 +26,38 @@ const userSlice = createSlice({
         },
         setLoading: (state, { payload }: PayloadAction<boolean>) => {
             state.loading = payload
+        },
+        setError: (state, { payload }: PayloadAction<string>) => {
+            state.user = {}
+            state.repos = []
+            state.rating = []
+            state.loading = false
+            state.error = payload
         }
     }
 });
 
-const { setData, setRating, setLoading } = userSlice.actions
+const { setData, setRating, setLoading, setError } = userSlice.actions
 export default userSlice.reducer
 
+interface UserData {
+    user: User,
+    repos: Repository[]
+}
 
 export const getUser = (userName: string) => async (dispatch: Dispatch<any>) => {
     try {
         dispatch(setLoading(true))
-        const user = await GetUserData(userName);
-        
+        const data: UserData | undefined = await GetUserData(userName);
 
-        if (user) {
-            const result = new UserRating(user.user, user.repos).getResult()
-            dispatch(setRating(result))
-            dispatch(setLoading(false))
+        
+        if (data?.user) {
+            const result = new UserRating(data.user, data.repos).getResult();
+            dispatch(setRating(result));
+            dispatch(setLoading(false));
+            dispatch(setData(data));
         }
-        dispatch(setData(user));
     } catch (err) {
-        console.error(err, err?.stack);
+        dispatch(setError(err.response?.data.message || 'User Not Found'))
     }
 }

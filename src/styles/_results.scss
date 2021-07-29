@@ -10,7 +10,7 @@
 
     @include dark {
       background: $dsecondary-2;
-      color: $dsecondary-3;
+      color: $dtext;
     }
 
     .highlight {
@@ -21,7 +21,7 @@
 
       @include dark {
         background: $dprimary-2;
-        color: $dsecondary-3;
+        color: $dtext;
       }
     }
 
@@ -31,14 +31,88 @@
   }
 
   .loading {
-    width: 100%;
-    margin: 4em;
+    width: 80%;
+    margin: 4em auto;
     display: block;
+  }
+
+  .box {
+    width: fit-content;
   }
 
   .show-results {
     display: flex;
+    align-items: center;
+    flex-direction: column;
     justify-content: center;
+  }
+
+  .lab-results {
+
+    margin-bottom: 3em;
+
+    @include dark {
+      color: $dtext;
+    }
+
+    h3 {
+      margin: 1em 0;
+
+      @include dark {
+        color: $dheading;
+      }
+    }
+
+    .metric-container {
+      display: grid;
+      grid-template-columns: repeat(2, 300px);
+      gap: 0 2em;
+
+      .metric-wrapper {
+        border-top: 1px $dheading solid;
+        padding: 0.8em 0;
+        display: flex;
+        justify-content: space-between;
+        font-weight: 500;
+        align-items: center;
+
+        .metric-title {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+
+        .metric-result {
+          filter: contrast(0.6);
+        }
+
+        .success {
+          color: $green;
+        }
+
+        .warning {
+          color: $orange;
+        }
+
+        .danger {
+          color: $red;
+        }
+
+        & :nth-child(1) {
+          margin-right: 0.8em;
+        }
+      }
+    }
+
+    @media screen and (max-width: 640px) {
+      width: 100%;
+      padding: 2em;
+
+      .metric-container {
+        display: flex;
+        flex-direction: column;
+      }
+    }
   }
 
   .default {
@@ -73,55 +147,7 @@
     margin: 1em auto;
 
     @include dark {
-      color: $dsecondary-3;
-    }
-  }
-
-  .percent {
-    position: relative;
-    width: 130px;
-    height: 130px;
-
-    svg {
-      position: relative;
-      width: 130px;
-      height: 130px;
-
-      circle {
-        width: 130px;
-        height: 130px;
-        fill-opacity: 10%;
-        stroke-width: 8;
-        stroke: #000;
-        transform: translate(5px, 5px);
-        stroke-dasharray: 377;
-        stroke-dashoffset: 377;
-
-        &:nth-child(1) {
-          stroke-dashoffset: 0;
-          stroke: none;
-        }
-
-        &:nth-child(2) {
-          stroke-linecap: round;
-        }
-      }
-    }
-
-    .number {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      columns: #111;
-
-      h2 {
-        font-size: 48px;
-      }
+      color: $dheading;
     }
   }
 

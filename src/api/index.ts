@@ -18,6 +18,6 @@ export const GetUserData = async (userName: string): Promise<IData | undefined> 
         }
         
     } catch (err) {
-        console.error(err, err?.message);
+        throw err
     }
 }

@@ -2,27 +2,30 @@ import React, { useState } from 'react'
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
 import { getUser } from '../../selectors'
+import Alert from '../Layout/Alert'
 import Default from './Default'
 import Loading from './Loading'
 import Results from './Results'
 
 const ResultSection = () => {
 
-    //const dispatch = useDispatch()
-    const { loading, rating } = useSelector(getUser)
+    const { user, error, loading, rating } = useSelector(getUser)
     const [results, setResults]: any = useState([])
 
-
     useEffect(() => {
-        if (rating.length > 0) {
-            setResults(rating)
-        }
+        setResults(rating)
     }, [rating])
 
     return (
         <section id="results">
             {
-                loading ? <Loading /> :  ( results.length > 0 ? <Results results={results} /> : <Default />) 
+                user?.login ? (
+                <Alert>
+                    Results for user: <a href={user.html_url} target="_blank" rel="noreferrer" className="highlight">{user.login}</a>
+                </Alert>) : error && <Alert>{ error } </Alert>
+            }
+            {
+                loading ? <Loading /> : (results.length > 0 ? <Results results={results} /> : <Default />)
             }
         </section>
     )
