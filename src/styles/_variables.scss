@@ -1,3 +1,7 @@
+// Fonts
+$font1: "Roboto", sans-serif;
+$font2: "Roboto Mono", sans-serif;
+
 // Light Colors
 $primary-1: #4285f4;
 $primary-2: #3367d6;
@@ -17,6 +21,7 @@ $dsecondary-2: #2d2d30;
 
 $dheading: #c9c9c9;
 $dtext: #b1b1b1;
+$dtext-2: #dadada;
 
 @mixin light() {
   @media (prefers-color-scheme: light) {

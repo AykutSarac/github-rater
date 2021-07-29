@@ -1,16 +1,8 @@
 .lab-results {
   margin-bottom: 3em;
 
-  @include dark {
-    color: $dtext;
-  }
-
   h3 {
     margin: 1em 0;
-
-    @include dark {
-      color: $dheading;
-    }
   }
 
   .metric-container {
@@ -34,18 +26,6 @@
 
       .metric-result {
         filter: contrast(0.6);
-      }
-
-      .success {
-        color: $green;
-      }
-
-      .warning {
-        color: $orange;
-      }
-
-      .danger {
-        color: $red;
       }
 
       & :nth-child(1) {

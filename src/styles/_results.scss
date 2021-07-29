@@ -10,7 +10,6 @@
 
     @include dark {
       background: $dsecondary-2;
-      color: $dtext;
     }
 
     .highlight {
@@ -21,7 +20,6 @@
 
       @include dark {
         background: $dprimary-2;
-        color: $dtext;
       }
     }
 
@@ -62,24 +60,10 @@
       display: block;
       margin-bottom: 0.5em;
       color: $black;
-
-      @include dark {
-        color: #e1e1e1;
-      }
     }
 
     a {
       color: $primary-1;
-    }
-  }
-
-  .title {
-    display: flex;
-    justify-content: center;
-    margin: 1em auto;
-
-    @include dark {
-      color: $dheading;
     }
   }
 

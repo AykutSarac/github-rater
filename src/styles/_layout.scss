@@ -6,9 +6,10 @@
 
 body {
   overflow-x: hidden;
-  font-family: "Roboto", sans-serif;
+  font-family: $font1;
 
   @include dark {
+    color: $dtext;
     background: $dsecondary-1;
   }
 }
@@ -31,5 +32,38 @@ a {
     @include dark {
       filter: invert(0.5);
     }
+  }
+}
+
+.success {
+  color: $green;
+}
+
+.warning {
+  color: $orange;
+}
+
+.danger {
+  color: $red;
+}
+
+div {
+  @include dark {
+    border-color: $dsecondary-2;
+  }
+}
+
+.metric-wrapper {
+  @include dark {
+    border-color: $dtext-2;
+  }
+}
+
+h1,
+h2,
+h3,
+span.header {
+  @include dark {
+    color: $dheading !important;
   }
 }
