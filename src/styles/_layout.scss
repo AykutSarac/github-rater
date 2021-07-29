@@ -19,17 +19,17 @@ a {
 }
 
 .notfound {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
 
   img {
     width: 400px;
     height: auto;
 
     @include dark {
-        filter: invert(.5);
+      filter: invert(0.5);
     }
   }
 }

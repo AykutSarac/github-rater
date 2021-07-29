@@ -1,59 +1,58 @@
 .search-user {
-    display: flex;
-    justify-content: center;
-    text-align: center;
-    width: 100%;
-    min-height: 200px;
-    flex-direction: column;
-    background: $primary-1;
-    padding: 4em 2em 1.5em;
-    color: $secondary-1;
-    box-shadow: 0 5px 5px rgba(170, 170, 170, 0.6);
+  display: flex;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  min-height: 200px;
+  flex-direction: column;
+  background: $primary-1;
+  padding: 4em 2em 1.5em;
+  color: $secondary-1;
+  box-shadow: 0 5px 5px rgba(170, 170, 170, 0.6);
+
+  @include dark {
+    background: #1f1f1f;
+    box-shadow: 0 5px 5px rgba(17, 17, 17, 0.6);
+  }
+
+  h2 {
+    margin-bottom: 5em;
+  }
+
+  input[type="text"] {
+    font-size: 14px;
+    width: 50%;
+    margin: 0 auto 0;
+    padding: 0.8em 1em;
+    outline: none;
+    border-radius: 2px;
+    border: none;
+  }
+
+  input[type="text"]:hover {
+    box-shadow: 0 0 0 2px skyblue;
+    background: rgb(255, 255, 199);
+  }
+
+  button[type="submit"] {
+    font-size: 14px;
+    margin-left: 0.5em;
+    padding: 0.8em 1em;
+    outline: none;
+    border-radius: 2px;
+    border: none;
+    background: $primary-2;
+    color: white;
+    font-weight: 500;
+    transition: 0.2s;
 
     @include dark {
-        background: #1f1f1f;
-        box-shadow: 0 5px 5px rgba(17, 17, 17, 0.6);
+      background: #2d2d30;
     }
+  }
 
-    h2 {
-        margin-bottom: 5em;
-    }
-
-
-    input[type="text"] {
-        font-size: 14px;
-        width: 50%;
-        margin: 0 auto 0;
-        padding: .8em 1em;
-        outline: none;
-        border-radius: 2px;
-        border: none;
-    }
-
-    input[type="text"]:hover {
-        box-shadow: 0 0 0 2px skyblue;
-        background: rgb(255, 255, 199);
-    }
-
-    button[type="submit"] {
-        font-size: 14px;
-        margin-left: .5em;
-        padding: .8em 1em;
-        outline: none;
-        border-radius: 2px;
-        border: none;
-        background: $primary-2;
-        color: white;
-        font-weight: 500;
-        transition: .2s;
-
-        @include dark {
-            background: #2d2d30;
-        }
-    }
-
-    button[type="submit"]:hover {
-        box-shadow: 0 0 0 2px skyblue;
-        cursor: pointer;
-    }
+  button[type="submit"]:hover {
+    box-shadow: 0 0 0 2px skyblue;
+    cursor: pointer;
+  }
 }

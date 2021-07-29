@@ -1,0 +1,66 @@
+.lab-results {
+  margin-bottom: 3em;
+
+  @include dark {
+    color: $dtext;
+  }
+
+  h3 {
+    margin: 1em 0;
+
+    @include dark {
+      color: $dheading;
+    }
+  }
+
+  .metric-container {
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+    gap: 0 2em;
+
+    .metric-wrapper {
+      border-top: 1px $dheading solid;
+      padding: 0.8em 0;
+      display: flex;
+      justify-content: space-between;
+      font-weight: 500;
+      align-items: center;
+
+      .metric-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .metric-result {
+        filter: contrast(0.6);
+      }
+
+      .success {
+        color: $green;
+      }
+
+      .warning {
+        color: $orange;
+      }
+
+      .danger {
+        color: $red;
+      }
+
+      & :nth-child(1) {
+        margin-right: 0.8em;
+      }
+    }
+  }
+
+  @media screen and (max-width: 640px) {
+    width: 100%;
+    padding: 2em;
+
+    .metric-container {
+      display: flex;
+      flex-direction: column;
+    }
+  }
+}

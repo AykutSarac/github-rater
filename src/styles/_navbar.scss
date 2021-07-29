@@ -26,35 +26,4 @@
       }
     }
   }
-
-  .theme-toggler {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 1.5em;
-    border-radius: 2em;
-    background: #383838;
-    padding: 0.6em 1em;
-    position: relative;
-
-    .picker {
-      position: absolute;
-      content: "";
-      width: 26px;
-      height: 26px;
-      background: $secondary-1;
-      left: 0;
-      top: 0.4em;
-      transform: translate(40%);
-      border-radius: 1em;
-      transition: 0.4s;
-      filter: drop-shadow(0 0 2px #121212);
-    }
-
-    .icon {
-      color: rgba(255, 255, 0, 0.637);
-      cursor: pointer;
-      -webkit-tap-highlight-color: transparent;
-    }
-  }
 }
