@@ -7,6 +7,7 @@ export class UserRating {
     result: IResult[] = []
     rating: Rating = {
         bioExists: false,
+        companyExists: false,
         bioRating: 0,
         locExists: false,
         blogExists: false,
@@ -16,7 +17,8 @@ export class UserRating {
         webpageRating: 0,
         totalForks: 0,
         totalStars: 0,
-        repoCount: 0
+        repoCount: 0,
+        backlinkRating: 0
     }
 
     constructor(user: User, repos: Repository[]) {
@@ -30,6 +32,7 @@ export class UserRating {
         this.rating.totalForks = TOTAL_FORKS;
         this.rating.bioExists = Boolean(user.bio);
         this.rating.locExists = Boolean(user.location);
+        this.rating.companyExists = Boolean(user.company);
         this.rating.repoCount = repos.length;
     }
 
@@ -91,7 +94,7 @@ export class UserRating {
             return (length < 4) ? 0 : 1;
         });
         const rate = (this.repos.length / repoDescLength.length)
-        const res = rate * 100;
+        const res = parseInt((rate * 100).toFixed(0));
         this.rating.repoDescriptionRating = res >= 100 ? 100 : res;
     }
 
@@ -101,8 +104,21 @@ export class UserRating {
         const webpageExist = this.repos.map(r => r.homepage).filter(r => r)
         const rate = (webpageExist.length / this.repos.length) * 100
 
-        const res = rate * 1.8;
+        const res = parseInt((rate * 1.8).toFixed(0));
         this.rating.webpageRating = res >= 100 ? 100 : res;
+    }
+
+    rateBacklinks() {
+
+        // Webpage rating
+        const bio = this.rating.bioExists ? 1 : 0;
+        const loc = this.rating.locExists ? 1 : 0;
+        const blog = this.rating.blogExists ? 1 : 0;
+        const company = this.rating.companyExists ? 1 : 0;
+
+        
+        const rate = (bio + loc + blog + company) / 4;
+        this.rating.backlinkRating = rate * 100;
     }
 
     getResult() {
@@ -113,6 +129,7 @@ export class UserRating {
         this.rateRepoDescription()
         this.rateStars()
         this.rateWebpage()
+        this.rateBacklinks()
 
         return finalizeResult(this.rating)
     }
