@@ -130,7 +130,7 @@ export class UserRating {
         this.rateWebpage()
         this.rateBacklinks()
 
-        const repoDescLength = this.repos.filter(r => r.description?.split(' ').length < 4);        
+        const repoDescLength = this.repos.filter(r => r.description?.split(' ').length < 5);        
 
         const suggestions = {
             repoSuggestions: repoDescLength.map(r => r.full_name)

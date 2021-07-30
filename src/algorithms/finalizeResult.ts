@@ -15,7 +15,7 @@ const finalizeResult = (rating: Rating, suggestions: ISuggestions) => {
         },
         {
             Name: "Repository Description",
-            Message: `You should provide brief description about your repository.\n\nNobody should spend their time going straight into the code and trying to understand what is the purpose from there. Instead, make sure that every repository you work on has the description field filled in. At the description part and the README file you want to talk about the features you wrote into the project. Demonstrate business acumen by articulating your role in the Git in one or two sentences that capture how you helped along the project. Think of Description as the headline, on which you’ll elaborate further in the ReadMe.\n\n• ${suggestions.repoSuggestions.join('\n• ')}`,
+            Message: `You should provide brief description about your repository.\n\nNobody should spend their time going straight into the code and trying to understand what is the purpose from there. Instead, make sure that every repository you work on has the description field filled in. At the description part and the README file you want to talk about the features you wrote into the project. Demonstrate business acumen by articulating your role in the Git in one or two sentences that capture how you helped along the project. Think of Description as the headline, on which you’ll elaborate further in the ReadMe. ${suggestions.repoSuggestions.length > 0 ? '\n\n• ' + suggestions.repoSuggestions.join('\n• ') : ''}`,
             Score: rating.repoDescriptionRating
         },
         {
