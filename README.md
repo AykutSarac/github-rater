@@ -4,7 +4,7 @@
 
 <div align="center">
 <h2>GitHub Rater - Rates Your GitHub Profile</h2>
-<a href="https://aykutsarac.github.com/github-rater">https://aykutsarac.github.com/github-rater</a>
+<a href="https://aykutsarac.github.com/github-rater">https://aykutsarac.github.io/github-rater</a>
 </div>
 <p></p>
 
