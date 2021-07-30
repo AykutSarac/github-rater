@@ -16,6 +16,18 @@
 - **Section specific scores** - Such as User Popularity, Biography, Repository Description rating...
 - **Suggestions to Improve** - View your opporunities to improve your GitHub profile upon results.
 
+## How It Calculates
+
+The following conditions are used in the calculations:
+
+- Total Stars
+- Total Forks
+- Total Followers
+- Repository Count
+- Repository Descriptions
+- User Biography
+- User Information (Email, Company, Location, Webpage)
+
 ## About
 
 GitHub rater is PageInsights themed GitHub profile rating app. It uses [GitHub API](https://docs.github.com/en/rest) to gather data about user and with our own algorithm it rates the data then displays the result to user.
