@@ -11,6 +11,7 @@ const Input = () => {
     const onSubmit = (e: { preventDefault: () => void; }) => {
         e.preventDefault();
         if (username !== '') {
+            if (username)
             dispatch(getUser(username));
             setUsername('');
         }
@@ -20,7 +21,7 @@ const Input = () => {
 
     return (
         <form onSubmit={onSubmit}>
-            <input type="text" placeholder="Username or URL" value={username} onChange={onChange} />
+            <input type="text" placeholder="GitHub Username..." value={username} onChange={onChange} />
             <button type="submit" onClick={onSubmit}>ANALYZE</button>
         </form>
     )
