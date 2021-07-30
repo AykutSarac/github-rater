@@ -9,7 +9,7 @@ interface IResults {
 
 const Results = ({ results }: IResults) => {
 
-    const OVERALL_SCORE = parseInt((results.map(e => e.Score).reduce((a: number, b: number) => a + b) / 5).toFixed(0))
+    const OVERALL_SCORE = parseInt((results.map(e => e.Score).reduce((a: number, b: number) => a + b) / 6).toFixed(0))
     
     return (
             <div className="show-results">
