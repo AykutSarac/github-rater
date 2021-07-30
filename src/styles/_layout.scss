@@ -54,9 +54,6 @@ a {
   margin: 4em auto;
 
   img {
-    width: 400px;
-    height: auto;
-
     @include dark {
       filter: invert(0.5);
     }
