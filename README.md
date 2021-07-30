@@ -3,7 +3,9 @@
 </p>
 
 <p align="center">GitHub Rater - Rates Your GitHub Profile</p>
-<a href="https://aykutsarac.github.com/github-rater" align="center">https://aykutsarac.github.com/github-rater</a>
+<p align="center">
+    <a href="https://aykutsarac.github.com/github-rater">https://aykutsarac.github.com/github-rater</a>
+</p>
 
 ![Screenshot](./assets/preview.png)
 
