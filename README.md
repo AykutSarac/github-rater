@@ -2,7 +2,9 @@
   <img src="./assets/logo.png">
 </p>
 
-<p align="center">GitHub Rater - Rates Your GitHub Profile</p>
+<p align="center">
+<h2>GitHub Rater - Rates Your GitHub Profile</h2>
+</p>
 <p align="center">
     <a href="https://aykutsarac.github.com/github-rater">https://aykutsarac.github.com/github-rater</a>
 </p>
