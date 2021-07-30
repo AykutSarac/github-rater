@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/github-rater/static/css/main.cbc59e0d.chunk.css",
-    "main.js": "/github-rater/static/js/main.7e686561.chunk.js",
-    "main.js.map": "/github-rater/static/js/main.7e686561.chunk.js.map",
+    "main.js": "/github-rater/static/js/main.7a68b796.chunk.js",
+    "main.js.map": "/github-rater/static/js/main.7a68b796.chunk.js.map",
     "runtime-main.js": "/github-rater/static/js/runtime-main.20eb1f91.js",
     "runtime-main.js.map": "/github-rater/static/js/runtime-main.20eb1f91.js.map",
     "static/js/2.455303a8.chunk.js": "/github-rater/static/js/2.455303a8.chunk.js",
@@ -16,6 +16,6 @@
     "static/js/runtime-main.20eb1f91.js",
     "static/js/2.455303a8.chunk.js",
     "static/css/main.cbc59e0d.chunk.css",
-    "static/js/main.7e686561.chunk.js"
+    "static/js/main.7a68b796.chunk.js"
   ]
 }
