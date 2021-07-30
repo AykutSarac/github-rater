@@ -1,6 +1,7 @@
 {
   "name": "github-rater",
   "version": "0.1.0",
+  "homepage": "https://aykutsarac.github.io/github-rater",
   "private": true,
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.1",
