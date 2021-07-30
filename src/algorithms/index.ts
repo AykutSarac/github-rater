@@ -2,9 +2,15 @@ import { IResult, Rating, Repository, User } from "../types"
 import finalizeResult from "./finalizeResult"
 
 export class UserRating {
+
+    // User Data & User Repositories (without forks)
     user: User
-    isStarred: Boolean
     repos: Repository[]
+
+    // Whether user starred GitHub Rater's repo or not
+    isStarred: Boolean
+
+
     result: IResult[] = []
     rating: Rating = {
         bioExists: false,
@@ -22,6 +28,8 @@ export class UserRating {
         backlinkRating: 0
     }
 
+
+    // Get all user data & repositories
     constructor(user: User, repos: Repository[], isStarred: Boolean) {
         const TOTAL_STARS = repos.map(r => r.stargazers_count).reduce((a, b) => a + b)
         const TOTAL_FORKS = repos.map(r => r.forks_count).reduce((a, b) => a + b)
@@ -29,13 +37,14 @@ export class UserRating {
         this.user = user;
         this.repos = repos.filter(r => !r.fork);
         this.isStarred = isStarred;
-        
+
         this.rating.totalStars = TOTAL_STARS;
         this.rating.totalForks = TOTAL_FORKS;
-        this.rating.bioExists = Boolean(user.bio);
         this.rating.locExists = Boolean(user.location);
+        this.rating.blogExists = Boolean(user.blog);
+        this.rating.bioExists = Boolean(user.bio);
         this.rating.companyExists = Boolean(user.company);
-        this.rating.repoCount = repos.length;
+        this.rating.repoCount = user.public_repos;
     }
 
     rateBio() {
@@ -44,25 +53,8 @@ export class UserRating {
         if (this.user.bio) {
             const WORD_COUNT = this.user.bio.split(' ').length;
 
-            this.rating.bioExists = true;
             const res = (WORD_COUNT * 8)
             this.rating.bioRating = res > 100 ? 100 : res;
-        }
-    }
-
-    rateCountry() {
-
-        // Country exists check
-        if (this.user.location) {
-            this.rating.locExists = true;
-        }
-    }
-
-    rateBlog() {
-
-        // Blog/Webpage exists
-        if (this.user.blog) {
-            this.rating.blogExists = true;
         }
     }
 
@@ -121,22 +113,28 @@ export class UserRating {
     }
 
     getResult() {
-        this.rateBio()
-        this.rateBlog()
-        this.rateCountry()
-        this.ratePopularity()
-        this.rateRepoDescription()
-        this.rateRepoPopularity()
-        this.rateWebpage()
-        this.rateBacklinks()
+        this.rateBio();
+        this.ratePopularity();
+        this.rateRepoDescription();
+        this.rateRepoPopularity();
+        this.rateWebpage();
+        this.rateBacklinks();
 
-        const repoDescLength = this.repos.filter(r => r.description?.split(' ').length < 5);        
+        const repoDescLength = this.repos.filter(r => r.description?.split(' ').length < 5 || !r.description);
+
+            const notExist = [
+                { type: this.rating.bioExists, Name: 'Biography' },
+                { type: this.rating.blogExists, Name: 'Blog' },
+                { type: this.rating.locExists, Name: 'Location' },
+                { type: this.rating.companyExists, Name: 'Company Name' }
+            ].filter(el => !el.type).map(el => el.Name);
 
         const suggestions = {
-            repoSuggestions: repoDescLength.map(r => r.full_name)
+            repoSuggestions: repoDescLength.map(r => r.full_name),
+            backlinkSuggestions: notExist
         }
 
-        return finalizeResult(this.rating, suggestions)
+        return finalizeResult(this.rating, suggestions);
     }
 
 }

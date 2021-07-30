@@ -1,11 +1,11 @@
 import { Rating } from "../types";
 
 interface ISuggestions {
-    repoSuggestions: string[]
+    repoSuggestions: string[],
+    backlinkSuggestions: string[]
 }
 
-const finalizeResult = (rating: Rating, suggestions: ISuggestions) => {    
-
+const finalizeResult = (rating: Rating, suggestions: ISuggestions) => {
 
     const result: Object[] = [
         {
@@ -30,7 +30,7 @@ const finalizeResult = (rating: Rating, suggestions: ISuggestions) => {
         },
         {
             Name: "Backlinks & Information",
-            Message: "Provide general information about yourself such as what is your current company, email address and links to your portfolio, GitLab, CodePen, or blog.",
+            Message: `Provide general information about yourself such as what is your current company, email address and links to your portfolio, GitLab, CodePen, or blog. ${ suggestions.backlinkSuggestions.length > 0 ? '\n\nConsider adding following to your profile:\n• ' + suggestions.backlinkSuggestions.join('\n• ') : ''}`,
             Score: rating.backlinkRating
         },
         {
