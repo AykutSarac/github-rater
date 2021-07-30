@@ -54,6 +54,7 @@
         border-top: 1px solid $dtext-2;
         font-weight: 500;
         cursor: pointer;
+        user-select: none;
 
         svg {
           margin-right: .5em;
@@ -66,6 +67,8 @@
           display: none;
           color: $muted;
           white-space: pre-line;
+          user-select: text;
+          cursor: default;
         }
 
         .data.show {
