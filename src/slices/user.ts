@@ -7,6 +7,7 @@ import { Repository, User, UserState } from '../types';
 
 export const initialState: UserState = {
     user: {},
+    starred: false,
     repos: [],
     rating: {},
     loading: false,
@@ -20,6 +21,7 @@ const userSlice = createSlice({
         setData: (state, { payload }: PayloadAction<any>) => {
             state.user = payload.user;
             state.repos = payload.repos;
+            state.starred = payload.isStarred
         },
         setRating: (state, { payload }: PayloadAction<any>) => {
             state.rating = payload
@@ -42,17 +44,18 @@ export default userSlice.reducer
 
 interface UserData {
     user: User,
-    repos: Repository[]
+    repos: Repository[],
+    isStarred: Boolean
 }
 
 export const getUser = (userName: string) => async (dispatch: Dispatch<any>) => {
     try {
         dispatch(setLoading(true))
         const data: UserData | undefined = await GetUserData(userName);
-
         
         if (data?.user) {
-            const result = new UserRating(data.user, data.repos).getResult();
+            const result = new UserRating(data.user, data.repos, data.isStarred).getResult();
+            
             dispatch(setRating(result));
             dispatch(setLoading(false));
             dispatch(setData(data));

@@ -3,6 +3,7 @@ import finalizeResult from "./finalizeResult"
 
 export class UserRating {
     user: User
+    isStarred: Boolean
     repos: Repository[]
     result: IResult[] = []
     rating: Rating = {
@@ -21,13 +22,14 @@ export class UserRating {
         backlinkRating: 0
     }
 
-    constructor(user: User, repos: Repository[]) {
+    constructor(user: User, repos: Repository[], isStarred: Boolean) {
         const TOTAL_STARS = repos.map(r => r.stargazers_count).reduce((a, b) => a + b)
         const TOTAL_FORKS = repos.map(r => r.forks_count).reduce((a, b) => a + b)
 
         this.user = user;
         this.repos = repos.filter(r => !r.fork);
-
+        this.isStarred = isStarred;
+        
         this.rating.totalStars = TOTAL_STARS;
         this.rating.totalForks = TOTAL_FORKS;
         this.rating.bioExists = Boolean(user.bio);
@@ -128,7 +130,13 @@ export class UserRating {
         this.rateWebpage()
         this.rateBacklinks()
 
-        return finalizeResult(this.rating)
+        const repoDescLength = this.repos.filter(r => r.description?.split(' ').length < 4);        
+
+        const suggestions = {
+            repoSuggestions: repoDescLength.map(r => r.full_name)
+        }
+
+        return finalizeResult(this.rating, suggestions)
     }
 
 }

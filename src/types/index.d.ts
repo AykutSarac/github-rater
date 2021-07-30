@@ -55,6 +55,7 @@ export interface Repository {
 
 export interface UserState {
     user?: Object<User>,
+    starred: Boolean,
     repos: Repository[],
     loading?: Boolean,
     rating?: any,
