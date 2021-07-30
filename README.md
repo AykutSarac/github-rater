@@ -6,6 +6,7 @@
 <h2>GitHub Rater - Rates Your GitHub Profile</h2>
 <a href="https://aykutsarac.github.com/github-rater">https://aykutsarac.github.com/github-rater</a>
 </div>
+<p></p>
 
 ![Screenshot](./assets/preview.png)
 
