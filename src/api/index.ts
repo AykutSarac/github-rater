@@ -14,7 +14,7 @@ export const GetUserData = async (userName: string): Promise<IData | undefined> 
         const repos = await axios.get(`https://api.github.com/users/${userName}/repos`).then(res => res?.data)
         const stars: Repository[] = await axios.get(`https://api.github.com/users/${userName}/starred`).then(res => res?.data)
 
-        const isStarred = stars.map(r => r.id).includes(384128195);
+        const isStarred = stars.map(r => r.id).includes(389782256);
 
         return {
             user,

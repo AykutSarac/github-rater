@@ -40,7 +40,7 @@ const LabResults = ({ results }: IProps) => {
                     {displayList()}
                 </div>
                 <div className="muted results-info">
-                    Values are estimated and may vary. The <a href="https://github.com/AykutSarac/github-rater">performance score is calculated</a> directly <br /> from these metrics.
+                    Values are estimated and may vary. The <a href="https://github.com/AykutSarac/github-rater#how-it-calculates">rating score is calculated</a> directly <br /> from these metrics.
                 </div>
             </div>
             <Opportunuties />
