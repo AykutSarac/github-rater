@@ -54,22 +54,16 @@ export interface Repository {
 }
 
 export interface UserState {
-    user?: Object<User>,
+    user: User | null,
+    repos: Repository[] | null,
+    rating: ResultObject[] | null,
+    error: string | null,
     starred: Boolean,
-    repos: Repository[],
-    loading?: Boolean,
-    rating?: any,
-    error?: string | null
+    loading?: Boolean
 }
 
 export interface RootState {
     userState: UserState
-}
-
-export interface IResult {
-    type: string,
-    message: string[],
-    rating: number
 }
 
 export interface Rating {
@@ -88,7 +82,7 @@ export interface Rating {
     backlinkRating: number
 }
 
-export interface IFResultObject {
+export interface ResultObject {
     Name: string,
     Message: string,
     Score: number

@@ -1,13 +1,13 @@
-import { Rating } from "../types";
+import { Rating, ResultObject } from "../types";
 
-interface ISuggestions {
+interface Suggestions {
     repoSuggestions: string[],
     backlinkSuggestions: string[]
 }
 
-const finalizeResult = (rating: Rating, suggestions: ISuggestions) => {
+const finalizeResult = (rating: Rating, suggestions: Suggestions): ResultObject[] => {
 
-    const result: Object[] = [
+    const result = [
         {
             Name: "User Popularity",
             Message: "Typically, GitHub isn’t primary place decision-makers look to fill roles in programming. Rather, it’s a handy tool for fine-matching skills and verifying that a candidate possesses them. If you’re using GitHub for advancement, you will want to present your projects and account activity in a way that’s clear and accessible.",

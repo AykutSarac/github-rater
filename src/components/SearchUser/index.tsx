@@ -1,11 +1,11 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { getUser } from '../../selectors'
+import { getStates } from '../../selectors'
 import Input from './Input'
 
 const SearchUser = () => {
 
-    const { user } = useSelector(getUser)
+    const { user } = useSelector(getStates)
 
     return (
         <div className="search-user">

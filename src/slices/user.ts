@@ -2,17 +2,17 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit'
 import { Dispatch } from 'react';
 import { UserRating } from '../algorithms';
 import { GetUserData } from '../api';
-import { Repository, User, UserState } from '../types';
+import { Repository, ResultObject, User, UserState } from '../types';
 
 
 export const initialState: UserState = {
-    user: {},
+    user: null,
+    repos: null,
+    rating: null,
+    error: null,
     starred: false,
-    repos: [],
-    rating: {},
-    loading: false,
-    error: null
-  }
+    loading: false
+}
 
 const userSlice = createSlice({
     name: 'user',
@@ -21,20 +21,21 @@ const userSlice = createSlice({
         setData: (state, { payload }: PayloadAction<any>) => {
             state.user = payload.user;
             state.repos = payload.repos;
-            state.starred = payload.isStarred
+            state.starred = payload.isStarred;
+            state.loading = false;
         },
-        setRating: (state, { payload }: PayloadAction<any>) => {
-            state.rating = payload
+        setRating: (state, { payload }: PayloadAction<ResultObject[]>) => {
+            state.rating = payload;
         },
-        setLoading: (state, { payload }: PayloadAction<boolean>) => {
-            state.loading = payload
+        setLoading: (state) => {
+            state.loading = true;
         },
         setError: (state, { payload }: PayloadAction<string>) => {
-            state.user = {}
-            state.repos = []
-            state.rating = []
-            state.loading = false
-            state.error = payload
+            state.user = null;
+            state.repos = null;
+            state.rating = null;
+            state.loading = false;
+            state.error = payload;
         }
     }
 });
@@ -50,16 +51,13 @@ interface UserData {
 
 export const getUser = (userName: string) => async (dispatch: Dispatch<any>) => {
     try {
-        dispatch(setLoading(true))
+        dispatch(setLoading())
         const data: UserData | undefined = await GetUserData(userName);
 
-        if (data?.repos.length === 0) throw Error("Couldn't find any public repository.")
-        
-        if (data?.user) {
+        if (data.user) {
             const result = new UserRating(data.user, data.repos, data.isStarred).getResult();
-            
+
             dispatch(setRating(result));
-            dispatch(setLoading(false));
             dispatch(setData(data));
         }
     } catch (err) {

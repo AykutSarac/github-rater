@@ -1,12 +1,9 @@
-import React from 'react'
-import { useEffect } from 'react'
-import { useState } from 'react'
-import { useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { FaMoon, FaSun } from 'react-icons/fa'
 
 const ThemeToggler = () => {
 
-    const elem: any = useRef()
+    const elem = React.useRef<HTMLDivElement | null>(null)
     const themeData = localStorage.getItem('theme') || 'light'
     const [theme, setTheme] = useState('light')
 
@@ -17,12 +14,14 @@ const ThemeToggler = () => {
     useEffect(() => {
         document.documentElement.setAttribute('data-theme', theme)
 
-        if (theme === 'dark') {
-            elem.current.style.transform = 'translate(210%)';
-        } else if (theme === 'light') {
-            elem.current.style.transform = 'translate(40%)';
+        if (elem.current) {
+            if (theme === 'dark') {
+                elem.current.style.transform = 'translate(210%)';
+            } else if (theme === 'light') {
+                elem.current.style.transform = 'translate(40%)';
+            }
         }
-
+        
     }, [theme])
 
 

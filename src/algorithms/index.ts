@@ -1,4 +1,4 @@
-import { IResult, Rating, Repository, User } from "../types"
+import { Rating, Repository, ResultObject, User } from "../types"
 import finalizeResult from "./finalizeResult"
 
 export class UserRating {
@@ -10,8 +10,6 @@ export class UserRating {
     // Whether user starred GitHub Rater's repo or not
     isStarred: Boolean
 
-
-    result: IResult[] = []
     rating: Rating = {
         bioExists: false,
         companyExists: false,
@@ -112,7 +110,7 @@ export class UserRating {
         this.rating.backlinkRating = rate * 100;
     }
 
-    getResult() {
+    getResult(): ResultObject[] {
         this.rateBio();
         this.ratePopularity();
         this.rateRepoDescription();

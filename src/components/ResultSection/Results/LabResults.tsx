@@ -1,11 +1,11 @@
 import React from 'react'
 import { IoTriangle, IoSquareSharp } from 'react-icons/io5'
 import { FaCircle } from 'react-icons/fa'
-import { IFResultObject } from '../../../types'
+import { ResultObject } from '../../../types'
 import Opportunuties from './Opportunuties'
 
 interface IProps {
-    results: IFResultObject[]
+    results: ResultObject[]
 }
 
 const LabResults = ({ results }: IProps) => {

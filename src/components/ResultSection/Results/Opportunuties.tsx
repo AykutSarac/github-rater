@@ -2,19 +2,11 @@ import React from 'react'
 import { FaCircle } from 'react-icons/fa'
 import { IoTriangle, IoSquareSharp } from 'react-icons/io5'
 import { useSelector } from 'react-redux'
-import { getUser } from '../../../selectors'
-import { IFResultObject, User } from '../../../types'
-
-
-interface ISelector {
-    rating?: IFResultObject[],
-    user?: User,
-    starred: Boolean
-}
+import { getStates } from '../../../selectors'
 
 const Opportunuties = () => {
 
-    const { rating, starred, user }: ISelector = useSelector(getUser)
+    const { rating, starred, user } = useSelector(getStates)
 
     const generateIcon = (percent: number) => {
         return (
@@ -25,9 +17,10 @@ const Opportunuties = () => {
     }
 
     const toggleExpand = (e: any) => {
-        if (!starred) return;
-        const elem = e.target.closest('.expand').children[1];
-        if (elem) elem.classList.toggle('show');
+        if (starred) {
+            const elem = e.target.closest('.expand').children[1];
+            if (elem) elem.classList.toggle('show');
+        }
     }
 
     return (

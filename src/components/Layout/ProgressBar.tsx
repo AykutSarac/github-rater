@@ -2,12 +2,12 @@ import React, { useEffect, useState } from 'react'
 import { IoTriangle, IoSquareSharp } from 'react-icons/io5'
 import { FaCircle } from 'react-icons/fa'
 
-interface props {
-    percentage?: number,
+interface Props {
+    percentage: number,
     title: string
 }
 
-const ProgressBar = ({ percentage = 0, title }: props) => {
+const ProgressBar = ({ percentage = 0, title }: Props) => {
 
     const [color, setColor] = useState('#0cce6b');
 

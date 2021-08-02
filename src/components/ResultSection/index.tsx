@@ -1,7 +1,8 @@
-import React, { useState } from 'react'
+import React from 'react'
 import { useEffect } from 'react'
 import { useSelector } from 'react-redux'
-import { getUser } from '../../selectors'
+import { getStates } from '../../selectors'
+import { ResultObject } from '../../types'
 import Alert from '../Layout/Alert'
 import NotFound from '../Layout/NotFound'
 import Default from './Default'
@@ -10,26 +11,26 @@ import Results from './Results'
 
 const ResultSection = () => {
 
-    const { user, error, loading, rating } = useSelector(getUser)
-    const [results, setResults]: any = useState([])
+    const state = useSelector(getStates)
+    const [results, setResults] = React.useState<ResultObject[] | null>(null)
 
     useEffect(() => {
-        setResults(rating)
-    }, [rating])
+        if (state.rating) setResults(state.rating)
+    }, [state.rating])
 
     return (
         <section id="results">
             {
-                user?.login ? (
+                state.user ? (
                     <Alert>
-                        Results for user: <a href={user.html_url} target="_blank" rel="noreferrer" className="highlight">{user.login}</a>
+                        Results for user: <a href={state.user.html_url} target="_blank" rel="noreferrer" className="highlight">{state.user.login}</a>
                     </Alert>
-                ) : error && <Alert className="bold">{error}</Alert>
+                ) : state.error && <Alert className="bold">{state.error}</Alert>
             }
             <div className="results-wrapper">
-                {loading && <Loading />}
+                {state.loading && <Loading />}
                 {
-                    results.length > 0 ? <Results results={results} /> : error && <NotFound />
+                    results && !state.error ? <Results results={results} /> : state.error && <NotFound />
                 }
                 <Default />
             </div>
