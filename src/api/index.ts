@@ -10,8 +10,8 @@ interface IData {
 // Fetch data from https://api.github.com and return user data and repos as object
 export const GetUserData = async (userName: string): Promise<IData | undefined> => {
     try {
-        const user = await axios.get(`https://api.github.com/users/${userName}`).then(res => res?.data)
-        const repos = await axios.get(`https://api.github.com/users/${userName}/repos`).then(res => res?.data)
+        const user: User = await axios.get(`https://api.github.com/users/${userName}`).then(res => res?.data)
+        const repos: Repository[] = await axios.get(`https://api.github.com/users/${userName}/repos`).then(res => res?.data.filter((r: Repository) => !r.fork))
         const stars: Repository[] = await axios.get(`https://api.github.com/users/${userName}/starred`).then(res => res?.data)
 
         const isStarred = stars.map(r => r.id).includes(389782256);

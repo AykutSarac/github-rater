@@ -24,7 +24,7 @@ const ResultSection = () => {
                     <Alert>
                         Results for user: <a href={user.html_url} target="_blank" rel="noreferrer" className="highlight">{user.login}</a>
                     </Alert>
-                ) : error && <Alert>{error}</Alert>
+                ) : error && <Alert className="danger">{error}</Alert>
             }
             <div className="results-wrapper">
                 {loading && <Loading />}

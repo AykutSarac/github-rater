@@ -52,6 +52,8 @@ export const getUser = (userName: string) => async (dispatch: Dispatch<any>) => 
     try {
         dispatch(setLoading(true))
         const data: UserData | undefined = await GetUserData(userName);
+
+        if (data?.repos.length === 0) throw Error("Couldn't find any public repository.")
         
         if (data?.user) {
             const result = new UserRating(data.user, data.repos, data.isStarred).getResult();
@@ -61,6 +63,6 @@ export const getUser = (userName: string) => async (dispatch: Dispatch<any>) => 
             dispatch(setData(data));
         }
     } catch (err) {
-        dispatch(setError(err.response?.data.message || 'User Not Found'))
+        dispatch(setError(err.response?.data.message || err.message || 'User Not Found'))
     }
 }
