@@ -6,7 +6,7 @@ import { ResultObject } from '../../types'
 import Alert from '../Layout/Alert'
 import NotFound from '../Layout/NotFound'
 import Default from './Default'
-import Loading from './Loading'
+import Loading from '../Layout/Loading'
 import Results from './Results'
 
 const ResultSection = () => {

@@ -51,7 +51,7 @@ export class UserRating {
         if (this.user.bio) {
             const WORD_COUNT = this.user.bio.split(' ').length;
 
-            const res = (WORD_COUNT * 8)
+            const res = (WORD_COUNT * 10)
             this.rating.bioRating = res > 100 ? 100 : res;
         }
     }
