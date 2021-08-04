@@ -1,0 +1,39 @@
+.results-explainer {
+  border-top: 1px solid $dheading;
+  width: 100%;
+
+  .default-wrapper {
+    display: grid;
+    margin: auto;
+    padding: 4em;
+    justify-content: center;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2em;
+    max-width: 768px;
+    line-height: 1.5;
+    color: $muted;
+
+    .header {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 0.5em;
+      color: $black;
+    }
+
+    a {
+      color: $primary-1;
+
+      @include dark {
+        color: $primary-2;
+      }
+    }
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .default-wrapper {
+    padding: 2em;
+    display: flex !important;
+    flex-direction: column;
+  }
+}

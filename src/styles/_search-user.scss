@@ -19,7 +19,7 @@
     margin-bottom: 3em;
   }
 
-  input[type="text"] {
+  input[type='text'] {
     font-size: 14px;
     width: 50%;
     margin: 0 auto 0;
@@ -29,12 +29,12 @@
     border: none;
   }
 
-  input[type="text"]:hover {
+  input[type='text']:hover {
     box-shadow: 0 0 0 2px skyblue;
     background: rgb(255, 255, 199);
   }
 
-  button[type="submit"] {
+  button[type='submit'] {
     font-size: 14px;
     margin-left: 0.5em;
     padding: 0.8em 1em;
@@ -51,7 +51,7 @@
     }
   }
 
-  button[type="submit"]:hover {
+  button[type='submit']:hover {
     box-shadow: 0 0 0 2px skyblue;
     cursor: pointer;
   }

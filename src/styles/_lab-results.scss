@@ -1,8 +1,23 @@
 .lab-results {
+  width: 100%;
   margin: 3em auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  .wrapper {
+    padding: 2em;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
 
   .opportunities {
     margin-top: 3em;
+    width: 100%;
     position: relative;
 
     .block-message {
@@ -21,7 +36,6 @@
       justify-content: center;
       z-index: 999;
 
-
       @include dark {
         background: $dsecondary-1;
         box-shadow: 0 -5px 5px $dsecondary-1;
@@ -37,7 +51,6 @@
     }
 
     .opportunity {
-
       &.blocked {
         filter: blur(1px);
         padding-bottom: 4em;
@@ -46,18 +59,18 @@
 
     ul {
       list-style: none;
-      margin-top: .6em;
+      margin-top: 0.6em;
 
       li {
         width: 100%;
-        padding: 0.6em .3em;
+        padding: 0.6em 0.3em;
         border-top: 1px solid $dtext-2;
         font-weight: 500;
         cursor: pointer;
         user-select: none;
 
         svg {
-          margin-right: .5em;
+          margin-right: 0.5em;
         }
 
         .data {
@@ -101,55 +114,5 @@
 
   h4 {
     margin: 1.5em 0;
-  }
-
-  .metric-container {
-    display: grid;
-    grid-template-columns: repeat(2, 300px);
-    gap: 0 2em;
-
-    .metric-wrapper {
-      border-top: 1px solid $dheading;
-      padding: 0.8em 0;
-      display: flex;
-      justify-content: space-between;
-      font-weight: 500;
-      align-items: center;
-
-      &:nth-last-child(1),
-      &:nth-last-child(2) {
-        border-bottom: 1px solid $dheading;
-      }
-
-      .metric-title {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-      }
-
-      .metric-result {
-        filter: contrast(0.6);
-      }
-
-      & :nth-child(1) {
-        margin-right: 0.8em;
-      }
-    }
-  }
-
-  @media screen and (max-width: 720px) {
-    width: 100%;
-    padding: 2em;
-
-    .metric-container {
-      display: flex;
-      flex-direction: column;
-    }
-
-    .metric-wrapper {
-      &:nth-last-child(2) {
-        border-bottom: none !important;
-      }
-    }
   }
 }

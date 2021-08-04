@@ -29,7 +29,7 @@ body {
     background: $secondary-1;
     padding: 0.3em 0.5em;
     border-radius: 2em;
-    margin-left: 0.6em;
+    margin-left: 0.3em;
     font-weight: 500;
 
     @include dark {
@@ -78,6 +78,12 @@ a {
 
 .muted {
   color: $muted;
+}
+
+.loading {
+  width: 80%;
+  margin: 4em auto;
+  display: block;
 }
 
 div {

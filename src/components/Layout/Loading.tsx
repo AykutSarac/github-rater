@@ -1,9 +1,5 @@
-import React from 'react'
+import React from 'react';
 
-const Loading = () => {
-    return (
-        <progress className="loading"></progress>
-    )
-}
+const Loading = () => <progress className="loading"></progress>;
 
-export default Loading
+export default Loading;

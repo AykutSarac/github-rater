@@ -1,0 +1,53 @@
+.labdata {
+  width: 100%;
+  overflow: hidden;
+
+  .metric-container {
+    display: grid;
+    grid-template-columns: repeat(2, 300px);
+    gap: 0 2em;
+
+    .metric-wrapper {
+      border-top: 1px solid $dheading;
+      padding: 0.8em 0;
+      display: flex;
+      justify-content: space-between;
+      font-weight: 500;
+      align-items: center;
+
+      &:nth-last-child(1),
+      &:nth-last-child(2) {
+        border-bottom: 1px solid $dheading;
+      }
+
+      .metric-title {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .metric-result {
+        filter: contrast(0.6);
+      }
+
+      & :nth-child(1) {
+        margin-right: 0.8em;
+      }
+    }
+  }
+
+  @media screen and (max-width: 720px) {
+    width: 100%;
+
+    .metric-container {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .metric-wrapper {
+      &:nth-last-child(2) {
+        border-bottom: none !important;
+      }
+    }
+  }
+}
