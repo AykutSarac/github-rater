@@ -29,10 +29,10 @@ const LabResults = () => {
         {displayList()}
       </div>
       <div className="muted results-info">
-        Values are estimated and may vary. The 
+        Values are estimated and may vary. The{' '}
         <a href="https://github.com/AykutSarac/github-rater#how-it-calculates">
           rating score is calculated
-        </a> 
+        </a>{' '}
         directly <br /> from these metrics.
       </div>
     </div>
