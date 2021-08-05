@@ -1,21 +1,21 @@
 {
   "files": {
-    "main.css": "/github-rater/static/css/main.b008cea9.chunk.css",
-    "main.js": "/github-rater/static/js/main.9d2bdf80.chunk.js",
-    "main.js.map": "/github-rater/static/js/main.9d2bdf80.chunk.js.map",
+    "main.css": "/github-rater/static/css/main.d05331ed.chunk.css",
+    "main.js": "/github-rater/static/js/main.5a2d06c7.chunk.js",
+    "main.js.map": "/github-rater/static/js/main.5a2d06c7.chunk.js.map",
     "runtime-main.js": "/github-rater/static/js/runtime-main.20eb1f91.js",
     "runtime-main.js.map": "/github-rater/static/js/runtime-main.20eb1f91.js.map",
     "static/js/2.4bf9e1be.chunk.js": "/github-rater/static/js/2.4bf9e1be.chunk.js",
     "static/js/2.4bf9e1be.chunk.js.map": "/github-rater/static/js/2.4bf9e1be.chunk.js.map",
     "index.html": "/github-rater/index.html",
-    "static/css/main.b008cea9.chunk.css.map": "/github-rater/static/css/main.b008cea9.chunk.css.map",
+    "static/css/main.d05331ed.chunk.css.map": "/github-rater/static/css/main.d05331ed.chunk.css.map",
     "static/js/2.4bf9e1be.chunk.js.LICENSE.txt": "/github-rater/static/js/2.4bf9e1be.chunk.js.LICENSE.txt",
     "static/media/404.04bf1677.svg": "/github-rater/static/media/404.04bf1677.svg"
   },
   "entrypoints": [
     "static/js/runtime-main.20eb1f91.js",
     "static/js/2.4bf9e1be.chunk.js",
-    "static/css/main.b008cea9.chunk.css",
-    "static/js/main.9d2bdf80.chunk.js"
+    "static/css/main.d05331ed.chunk.css",
+    "static/js/main.5a2d06c7.chunk.js"
   ]
 }
