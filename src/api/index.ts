@@ -15,7 +15,7 @@ export const GetUserData = async (userName: string): Promise<Data> => {
 
     // Fetch Repository Data
     const repos: Repository[] = await axiosInstance
-      .get(`${userName}/repos`)
+      .get(`${userName}/repos?&per_page=250`)
       .then((res) => res?.data.filter((r: Repository) => !r.fork));
     if (repos.length === 0) throw Error("Couldn't find any public repository.");
 
