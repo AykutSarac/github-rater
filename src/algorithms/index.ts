@@ -56,8 +56,7 @@ export class UserRating {
   ratePopularity() {
     // Popularity Rating
     const STAR_RATE =
-      this.repos.map((r) => r.stargazers_count).reduce((a, b) => a + b) /
-      this.repos.length;
+      this.repos.map((r) => r.stargazers_count).reduce((a, b) => a + b) / this.repos.length;
 
     const rate = this.user.followers / this.repos.length + STAR_RATE;
     const res = parseInt((rate * 15).toFixed(0));

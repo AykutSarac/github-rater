@@ -20,12 +20,7 @@ const Input = () => {
 
   return (
     <form onSubmit={onSubmit}>
-      <input
-        type="text"
-        placeholder="GitHub Username..."
-        value={username}
-        onChange={onChange}
-      />
+      <input type="text" placeholder="GitHub Username..." value={username} onChange={onChange} />
       <button type="submit" onClick={onSubmit}>
         ANALYZE
       </button>

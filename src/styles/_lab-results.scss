@@ -29,9 +29,8 @@
       bottom: 0;
       left: 0;
       box-shadow: 0 -10px 20px #fff;
+      border-radius: 14%;
       background: #fff;
-      border-radius: 5px;
-      content: 'hi';
       display: flex;
       justify-content: center;
       z-index: 999;
@@ -42,7 +41,8 @@
       }
 
       h3 {
-        margin-top: 2em;
+        margin-top: 1.2em;
+        width: 90%;
       }
 
       a {

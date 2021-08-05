@@ -26,13 +26,9 @@ const ResultsExplainer = () => {
         </div>
         <div>
           <span className="header">Help Us Improving Accuracy</span>
-          We're doing our best to write the best algorithm in order to accurately rate
-          your GitHub profile. We appreciate your contributions, see our{' '}
-          <a
-            href="https://github.com/AykutSarac/github-rater"
-            target="_blank"
-            rel="noreferrer"
-          >
+          We're doing our best to write the best algorithm in order to accurately rate your GitHub
+          profile. We appreciate your contributions, see our{' '}
+          <a href="https://github.com/AykutSarac/github-rater" target="_blank" rel="noreferrer">
             GitHub repository
           </a>{' '}
           here to learn how you can help us.
@@ -40,11 +36,7 @@ const ResultsExplainer = () => {
         <div>
           <span className="header">Check GitHub Repository</span>
           Check out{' '}
-          <a
-            href="https://github.com/AykutSarac/github-rater"
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href="https://github.com/AykutSarac/github-rater" target="_blank" rel="noreferrer">
             GitHub Rater's Repository
           </a>{' '}
           at GitHub!
