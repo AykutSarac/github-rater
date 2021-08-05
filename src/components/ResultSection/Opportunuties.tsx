@@ -13,6 +13,7 @@ const Opportunuties = () => {
     }
   };
 
+
   const opportunityList = () => {
     if (rating) {
       return rating
@@ -20,7 +21,11 @@ const Opportunuties = () => {
         .map((r, idx) => (
           <li key={idx} className="expand" onClick={toggleExpand}>
             <RateIcon rate={r.Score} /> {r.Name}
-            {starred && <div className="data">{r.Message}</div>}
+            {starred && (
+              <div className="data"
+              dangerouslySetInnerHTML={{ __html: r.Message + (r.Suggestions ? '\n\nMissing Resources:\n• ' + r.Suggestions.join('\n• ') : '') }}>
+              </div>
+            )}
           </li>
         ));
     } else {

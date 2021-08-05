@@ -10,22 +10,20 @@ const finalizeResult = (rating: Rating, suggestions: Suggestions): ResultObject[
     {
       Name: 'User Popularity',
       Message:
-        'Typically, GitHub isn’t primary place decision-makers look to fill roles in programming. Rather, it’s a handy tool for fine-matching skills and verifying that a candidate possesses them. If you’re using GitHub for advancement, you will want to present your projects and account activity in a way that’s clear and accessible.',
+        "Your profile page tells people the story of your work through the repositories you're interested in, the contributions you've made, and the conversations you've had. <a href=\"https://docs.github.com/en/github/setting-up-and-managing-your-github-profile/customizing-your-profile/about-your-profile\">See More.</a>\n\nTypically, GitHub isn’t primary place decision-makers look to fill roles in programming. Rather, it’s a handy tool for fine-matching skills and verifying that a candidate possesses them. If you’re using GitHub for advancement, you will want to present your projects and account activity in a way that’s clear and accessible.",
       Score: rating.userPopularity,
     },
     {
       Name: 'Repository Description',
-      Message: `You should provide brief description about your repository.\n\nNobody should spend their time going straight into the code and trying to understand what is the purpose from there. Instead, make sure that every repository you work on has the description field filled in. At the description part and the README file you want to talk about the features you wrote into the project. Demonstrate business acumen by articulating your role in the Git in one or two sentences that capture how you helped along the project. Think of Description as the headline, on which you’ll elaborate further in the ReadMe. ${
-        suggestions.repoSuggestions.length > 0
-          ? '\n\n• ' + suggestions.repoSuggestions.join('\n• ')
-          : ''
-      }`,
+      Message:
+        'You should provide brief description about your repository.\n\nNobody should spend their time going straight into the code and trying to understand what is the purpose from there. Instead, make sure that every repository you work on has the description field filled in. At the description part and the README file you want to talk about the features you wrote into the project. Demonstrate business acumen by articulating your role in the Git in one or two sentences that capture how you helped along the project. Think of Description as the headline, on which you’ll elaborate further in the ReadMe.',
       Score: rating.repoDescriptionRating,
+      Suggestions: suggestions.repoSuggestions,
     },
     {
       Name: 'Biography',
       Message:
-        'It is suggested to have a proper biography with at least 5 words - past and present employers, projects you have worked on, or languages and frameworks you enjoy using, or are currently learning. Include the type of company or kind of projects you would be interested in the future.',
+        'Add a bio to your profile to share information about yourself with other GitHub users. <a href="https://docs.github.com/en/github/setting-up-and-managing-your-github-profile/customizing-your-profile/personalizing-your-profile#adding-a-bio-to-your-profile">See More.</a>\n\nIt is suggested to have a proper biography with at least 5 words - past and present employers, projects you have worked on, or languages and frameworks you enjoy using, or are currently learning. Include the type of company or kind of projects you would be interested in the future.',
       Score: rating.bioRating,
     },
     {
@@ -36,18 +34,15 @@ const finalizeResult = (rating: Rating, suggestions: Suggestions): ResultObject[
     },
     {
       Name: 'Backlinks & Information',
-      Message: `Provide general information about yourself such as what is your current company, email address and links to your portfolio, GitLab, CodePen, or blog. ${
-        suggestions.backlinkSuggestions.length > 0
-          ? '\n\nConsider adding following to your profile:\n• ' +
-            suggestions.backlinkSuggestions.join('\n• ')
-          : ''
-      }`,
+      Message:
+        'Provide general information about yourself such as what is your current company, email address and links to your portfolio, GitLab, CodePen, or blog.',
       Score: rating.backlinkRating,
+      Suggestions: suggestions.backlinkSuggestions,
     },
     {
       Name: 'Providing Web Pages',
       Message:
-        "It's important to provide a webpage if your repository is especially a library. You can use gitbook or similar tools to documante your project or provide a demo of how it works.",
+        'You can use GitHub Pages to host a website about yourself, your organization, or your project directly from a GitHub repository. <a href="https://docs.github.com/en/pages/getting-started-with-github-pages/about-github-pages">See More.</a>\n\nIt\'s important to provide a webpage if your repository is especially a library. You can use gitbook or similar tools to documante your project or provide a demo of how it works.',
       Score: rating.webpageRating,
     },
   ];

@@ -85,4 +85,5 @@ export interface ResultObject {
   Name: string;
   Message: string;
   Score: number;
+  Suggestions?: string[]
 }
