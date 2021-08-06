@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 
 import RateIcon from './RateIcon';
 
-interface Props {
+export interface Props {
   percentage: number;
   title: string;
 }

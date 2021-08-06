@@ -4,7 +4,7 @@ import { getResult } from '../../selectors';
 
 import ProgressBar from './ProgressBar';
 import LabResults from './LabResults';
-import Opportunuties from './Opportunuties';
+import Opportunuties from './Opportunities';
 
 const ResultsWrapper = () => {
   const result = useSelector(getResult);
