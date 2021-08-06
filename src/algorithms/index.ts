@@ -123,9 +123,25 @@ export class UserRating {
       .filter((el) => !el.type)
       .map((el) => el.Name);
 
+    const licensing = this.repos.filter((r) => !r.license).map((r) => r.full_name);
+
+    const archive = this.repos
+      .filter((r) => {
+        const today = new Date().getTime();
+        const updated_at = new Date(r.updated_at).getTime();
+
+        const DAY_TO_MS = 1000 * 60 * 60 * 24;
+        const DAYS_DIFF = Math.ceil((today - updated_at) / DAY_TO_MS);
+
+        return DAYS_DIFF > 240;
+      })
+      .map((r) => r.full_name);
+
     const suggestions = {
-      repoSuggestions: repoDescLength.map((r) => r.full_name),
-      backlinkSuggestions: notExist,
+      repository: repoDescLength.map((r) => r.full_name),
+      backlinks: notExist,
+      licensing,
+      archive,
     };
 
     return finalizeResult(this.rating, suggestions);

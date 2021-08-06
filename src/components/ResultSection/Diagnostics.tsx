@@ -3,28 +3,32 @@ import { useSelector } from 'react-redux';
 import { getStates } from '../../selectors';
 import RateIcon from './RateIcon';
 
-const Opportunuties = () => {
+const Diagnostics = () => {
   const { rating, starred, user } = useSelector(getStates);
 
   const toggleExpand = (e: React.MouseEvent<HTMLLIElement>) => {
     if (starred && e.target === e.currentTarget) {
-      const target = e.target as HTMLLIElement;
-      target.children[1].classList.toggle('show');
+      const target = (e.target as HTMLLIElement).querySelector('div');
+      target && target.classList.toggle('show');
     }
   };
 
-
-  const opportunityList = () => {
+  const diagnosticsList = () => {
     if (rating) {
       return rating
-        .filter((r) => r.Score < 90 && !r.Partial)
+        .filter((r) => r.Score < 0)
         .map((r, idx) => (
           <li key={idx} className="expand" onClick={toggleExpand}>
-            <RateIcon rate={r.Score} /> {r.Name}
+            <RateIcon rate={r.Score} /> {r.Name}{' '}
+            <span className="muted audit_text bold">{r.Suggestions?.length} found</span>
             {starred && (
-              <div className="data"
-              dangerouslySetInnerHTML={{ __html: r.Message + (r.Suggestions ? '\n\nMissing Resources:\n• ' + r.Suggestions.join('\n• ') : '') }}>
-              </div>
+                <div className="data"
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      r.Message +
+                      (r.Suggestions ? '\n\nResources:\n• ' + r.Suggestions.join('\n• ') : ''),
+                  }}
+                ></div>
             )}
           </li>
         ));
@@ -33,10 +37,15 @@ const Opportunuties = () => {
     }
   };
 
-  if (opportunityList().length > 0) {
+  if (diagnosticsList().length > 0) {
     return (
       <div className="audits">
-        <h4>Opportunities</h4>
+        <h4>
+          Diagnostics{' '}
+          <span className="muted audit_text">
+            These numbers don't directly affect the rating score.
+          </span>
+        </h4>
         {!starred && (
           <div className="block-message">
             <h3>
@@ -48,9 +57,8 @@ const Opportunuties = () => {
             </h3>
           </div>
         )}
-        <div className={`audit_metric ${!starred ? ' blocked' : ''}`}>
-          <span className="header">Opportunity</span>
-          <ul>{opportunityList()}</ul>
+        <div className={`audit_result ${!starred ? ' blocked' : ''}`}>
+          <ul>{diagnosticsList()}</ul>
         </div>
       </div>
     );
@@ -59,4 +67,4 @@ const Opportunuties = () => {
   }
 };
 
-export default Opportunuties;
+export default Diagnostics;

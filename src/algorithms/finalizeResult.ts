@@ -1,8 +1,10 @@
 import { Rating, ResultObject } from '../types';
 
 interface Suggestions {
-  repoSuggestions: string[];
-  backlinkSuggestions: string[];
+  repository: string[];
+  backlinks: string[];
+  licensing: string[];
+  archive: string[];
 }
 
 const finalizeResult = (rating: Rating, suggestions: Suggestions): ResultObject[] => {
@@ -18,7 +20,7 @@ const finalizeResult = (rating: Rating, suggestions: Suggestions): ResultObject[
       Message:
         'You should provide brief description about your repository.\n\nNobody should spend their time going straight into the code and trying to understand what is the purpose from there. Instead, make sure that every repository you work on has the description field filled in. At the description part and the README file you want to talk about the features you wrote into the project. Demonstrate business acumen by articulating your role in the Git in one or two sentences that capture how you helped along the project. Think of Description as the headline, on which you’ll elaborate further in the ReadMe.',
       Score: rating.repoDescriptionRating,
-      Suggestions: suggestions.repoSuggestions,
+      Suggestions: suggestions.repository,
     },
     {
       Name: 'Biography',
@@ -37,7 +39,7 @@ const finalizeResult = (rating: Rating, suggestions: Suggestions): ResultObject[
       Message:
         'Provide general information about yourself such as what is your current company, email address and links to your portfolio, GitLab, CodePen, or blog.',
       Score: rating.backlinkRating,
-      Suggestions: suggestions.backlinkSuggestions,
+      Suggestions: suggestions.backlinks,
     },
     {
       Name: 'Providing Web Pages',
@@ -47,7 +49,29 @@ const finalizeResult = (rating: Rating, suggestions: Suggestions): ResultObject[
     },
   ];
 
-  return result;
+  const partials = [
+    {
+      Name: 'License repositories',
+      Message:
+        'You can include an open source license in your repository to make it easier for other people to contribute. <a href="https://docs.github.com/en/communities/setting-up-your-project-for-healthy-contributions/adding-a-license-to-a-repository">See More.</a>',
+      Score: suggestions.licensing?.length > 0 ? -1 : 100,
+      Suggestions: suggestions.licensing,
+      Partial: true,
+    },
+    {
+      Name: 'Archive repositories that are no longer maintained',
+      Message:
+        'You can archive a repository to make it read-only for all users and indicate that it\'s no longer actively maintained. <a href="https://docs.github.com/en/github/creating-cloning-and-archiving-repositories/archiving-a-github-repository/archiving-repositories">See More.</a>',
+      Score: suggestions.archive?.length > 0 ? -1 : 100,
+      Suggestions: suggestions.archive,
+      Partial: true,
+    },
+  ];
+
+  return [
+    ...result,
+    ...partials,
+  ];
 };
 
 export default finalizeResult;

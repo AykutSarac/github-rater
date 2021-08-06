@@ -12,7 +12,7 @@ const ResultsList = () => {
   return (
     <Fragment>
       {results &&
-        results.map((result, idx) => (
+        results.filter(r => !r.Partial).map((result, idx) => (
           <div className="metric-wrapper" key={idx}>
             <span className="metric-title">
               <RateIcon rate={result.Score} /> {result.Name}

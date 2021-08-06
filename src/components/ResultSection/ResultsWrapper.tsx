@@ -5,6 +5,7 @@ import { getResult } from '../../selectors';
 import ProgressBar from './ProgressBar';
 import LabResults from './LabResults';
 import Opportunuties from './Opportunities';
+import Diagnostics from './Diagnostics';
 
 const ResultsWrapper = () => {
   const result = useSelector(getResult);
@@ -13,7 +14,7 @@ const ResultsWrapper = () => {
   const getOverall = (): number => {
     if (result) {
       // Sum of all scores
-      const SCORE_SUM = result.map((e) => e.Score).reduce((a: number, b: number) => a + b);
+      const SCORE_SUM = result.filter(r => !r.Partial).map((e) => e.Score).reduce((a: number, b: number) => a + b);
 
       // Increase overall score by 1.08 to improve accuracy
       const CALC_SCORE = convertToInt((SCORE_SUM / 6) * 1.08);
@@ -30,6 +31,7 @@ const ResultsWrapper = () => {
       <div className="wrapper">
         <LabResults />
         <Opportunuties />
+        <Diagnostics />
       </div>
     </div>
   );

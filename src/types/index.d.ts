@@ -82,8 +82,9 @@ export interface Rating {
 }
 
 export interface ResultObject {
+  Partial?: Boolean;
   Name: string;
   Message: string;
   Score: number;
-  Suggestions?: string[]
+  Suggestions?: string[];
 }
