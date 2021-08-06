@@ -1,4 +1,4 @@
-.opportunities {
+.audits {
     margin-top: 3em;
     width: 100%;
     position: relative;
@@ -37,7 +37,7 @@
         }
       }
 
-    .opportunity {
+    .audit_result {
       &.blocked {
         filter: blur(1px);
         padding-bottom: 4em;

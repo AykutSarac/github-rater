@@ -73,11 +73,25 @@ a {
 }
 
 .bold {
-  font-weight: 500;
+  font-weight: 700 !important;
 }
 
 .muted {
   color: $muted;
+}
+
+.muted-light {
+  color: $dtext;
+}
+
+span.audit_text {
+  font-size: .9rem;
+  font-weight: 500;
+
+  &::before {
+    margin: 0 4px;
+    content: '\002014';
+  }
 }
 
 .loading {
