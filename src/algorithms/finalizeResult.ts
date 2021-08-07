@@ -68,10 +68,7 @@ const finalizeResult = (rating: Rating, suggestions: Suggestions): ResultObject[
     },
   ];
 
-  return [
-    ...result,
-    ...partials,
-  ];
+  return [...result, ...partials];
 };
 
 export default finalizeResult;

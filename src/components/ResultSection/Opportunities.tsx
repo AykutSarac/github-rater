@@ -13,7 +13,6 @@ const Opportunuties = () => {
     }
   };
 
-
   const opportunityList = () => {
     if (rating) {
       return rating
@@ -22,9 +21,16 @@ const Opportunuties = () => {
           <li key={idx} className="expand" onClick={toggleExpand}>
             <RateIcon rate={r.Score} /> {r.Name}
             {starred && (
-              <div className="data"
-              dangerouslySetInnerHTML={{ __html: r.Message + (r.Suggestions ? '\n\nMissing Resources:\n• ' + r.Suggestions.join('\n• ') : '') }}>
-              </div>
+              <div
+                className="data"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    r.Message +
+                    (r.Suggestions
+                      ? '\n\nMissing Resources:\n• ' + r.Suggestions.join('\n• ')
+                      : ''),
+                }}
+              ></div>
             )}
           </li>
         ));
@@ -48,7 +54,7 @@ const Opportunuties = () => {
             </h3>
           </div>
         )}
-        <div className={`audit_metric ${!starred ? ' blocked' : ''}`}>
+        <div className={`audit_result ${!starred ? ' blocked' : ''}`}>
           <span className="header">Opportunity</span>
           <ul>{opportunityList()}</ul>
         </div>

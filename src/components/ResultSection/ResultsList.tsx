@@ -12,14 +12,18 @@ const ResultsList = () => {
   return (
     <Fragment>
       {results &&
-        results.filter(r => !r.Partial).map((result, idx) => (
-          <div className="metric-wrapper" key={idx}>
-            <span className="metric-title">
-              <RateIcon rate={result.Score} /> {result.Name}
-            </span>
-            <span className={`metric-result ${generateResult(result.Score)}`}>{result.Score}</span>
-          </div>
-        ))}
+        results
+          .filter((r) => !r.Partial)
+          .map((result, idx) => (
+            <div className="metric-wrapper" key={idx}>
+              <span className="metric-title">
+                <RateIcon rate={result.Score} /> {result.Name}
+              </span>
+              <span className={`metric-result ${generateResult(result.Score)}`}>
+                {result.Score}
+              </span>
+            </div>
+          ))}
     </Fragment>
   );
 };

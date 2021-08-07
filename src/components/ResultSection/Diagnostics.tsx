@@ -22,13 +22,14 @@ const Diagnostics = () => {
             <RateIcon rate={r.Score} /> {r.Name}{' '}
             <span className="muted audit_text bold">{r.Suggestions?.length} found</span>
             {starred && (
-                <div className="data"
-                  dangerouslySetInnerHTML={{
-                    __html:
-                      r.Message +
-                      (r.Suggestions ? '\n\nResources:\n• ' + r.Suggestions.join('\n• ') : ''),
-                  }}
-                ></div>
+              <div
+                className="data"
+                dangerouslySetInnerHTML={{
+                  __html:
+                    r.Message +
+                    (r.Suggestions ? '\n\nResources:\n• ' + r.Suggestions.join('\n• ') : ''),
+                }}
+              ></div>
             )}
           </li>
         ));

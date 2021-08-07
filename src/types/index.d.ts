@@ -52,6 +52,12 @@ export interface Repository {
   default_branch: string;
 }
 
+export interface APIData {
+  user: User;
+  repos: Repository[];
+  isStarred: Boolean;
+}
+
 export interface UserState {
   user: User | null;
   repos: Repository[] | null;
