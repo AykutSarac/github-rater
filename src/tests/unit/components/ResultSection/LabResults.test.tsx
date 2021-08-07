@@ -1,11 +1,13 @@
 import React from 'react';
-import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
 import LabResults from '../../../../components/ResultSection/LabResults';
+import { renderWithRouter } from '../../testHelper';
+
+const wrap = () => renderWithRouter(<LabResults />);
 
 describe('<LabResults />', () => {
   it('renders the LabResults component', () => {
-    const component = render(<LabResults />);
+    const component = wrap();
 
     expect(component).toBeTruthy();
   });
