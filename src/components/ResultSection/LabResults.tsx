@@ -13,7 +13,7 @@ const LabResults = () => (
       <a href="https://github.com/AykutSarac/github-rater#how-it-calculates">
         rating score is calculated
       </a>{' '}
-      directly <br /> from these metrics.
+      directly from these metrics.
     </div>
   </div>
 );
