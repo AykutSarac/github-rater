@@ -1,20 +1,21 @@
 <p align="center">
   <img src="./assets/logo.png">
 </p>
+<hr />
 
-<div align="center">
-<h2>GitHub Rater - Rates Your GitHub Profile</h2>
-<a href="https://aykutsarac.github.io/github-rater">https://aykutsarac.github.io/github-rater</a>
-</div>
-<p></p>
+# GitHub Rater
+
+[GitHub Rater](https://aykutsarac.github.io/github-rater) rates GitHub profiles upon data received from GitHub API. You can use this tool to find out which part of the profile should be improved to make it more effective. As well as to assess the popularity and activity of other people's profile.
 
 ![Screenshot](./assets/preview.png)
 
 ## Features
 
-- **Overall Score** - Get an overall score based on other scores.
-- **Section specific scores** - Such as User Popularity, Biography, Repository Description rating...
-- **Suggestions to Improve** - View your opporunities to improve your GitHub profile upon results.
+- **Search GitHub Users** - Search for GitHub users, gather scoring about their profiles and repositories
+- **Overall Score** - Get an overall score based on other scores
+- **Section specific scores** - Such as User Popularity, Biography, Repository Description rating and more
+- **Suggestions to Improve** - View your opporunities to improve your GitHub profile upon results
+- **Diagnostics** - View diagnostics acquired and evaluated through user's profile that doesn't effect the scoring but general profile overview
 
 ## How It Calculates
 
