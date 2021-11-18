@@ -1,16 +1,16 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
 const ThemeToggler = () => {
   const elem = React.useRef<HTMLDivElement | null>(null);
   const themeData = localStorage.getItem('theme') || 'light';
-  const [theme, setTheme] = useState('light');
+  const [theme, setTheme] = React.useState('light');
 
-  useEffect(() => {
+  React.useEffect(() => {
     setTheme(themeData);
   }, [themeData]);
 
-  useEffect(() => {
+  React.useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
 
     if (elem.current) {

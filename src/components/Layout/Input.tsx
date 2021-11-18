@@ -1,11 +1,10 @@
 import React from 'react';
-import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getUser } from '../../slices/user';
 
 const Input = () => {
   const dispatch = useDispatch();
-  const [username, setUsername] = useState('');
+  const [username, setUsername] = React.useState('');
 
   const onSubmit = (e: { preventDefault: () => void }) => {
     e.preventDefault();
@@ -15,12 +14,9 @@ const Input = () => {
     }
   };
 
-  const onChange = (e: { target: { value: React.SetStateAction<string> } }) =>
-    setUsername(e.target.value);
-
   return (
     <form onSubmit={onSubmit}>
-      <input type="text" placeholder="GitHub Username..." value={username} onChange={onChange} />
+      <input type="text" placeholder="GitHub Username..." value={username} onChange={e => setUsername(e.target.value)} />
       <button type="submit" onClick={onSubmit}>
         ANALYZE
       </button>

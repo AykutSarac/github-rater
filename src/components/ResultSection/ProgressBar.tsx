@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 
 import RateIcon from './RateIcon';
 
@@ -8,9 +8,9 @@ export interface Props {
 }
 
 const ProgressBar = ({ percentage = 0, title }: Props) => {
-  const [color, setColor] = useState('#0cce6b');
+  const [color, setColor] = React.useState('#0cce6b');
 
-  useEffect(() => {
+  React.useEffect(() => {
     if (percentage >= 90) return setColor('#0cce6b');
     if (percentage >= 50) return setColor('#ffa400');
     return setColor('#ff4e42');

@@ -15,27 +15,27 @@ const Diagnostics = () => {
 
   const diagnosticsList = () => {
     if (rating) {
-      return rating
-        .filter((r) => r.Score < 0)
-        .map((r, idx) => (
-          <li key={idx} className="expand" onClick={toggleExpand}>
-            <RateIcon rate={r.Score} /> {r.Name}{' '}
-            <span className="muted audit_text bold">{r.Suggestions?.length} found</span>
-            {starred && (
-              <div
-                className="data"
-                dangerouslySetInnerHTML={{
-                  __html:
-                    r.Message +
-                    (r.Suggestions ? '\n\nResources:\n• ' + r.Suggestions.join('\n• ') : ''),
-                }}
-              ></div>
-            )}
-          </li>
-        ));
-    } else {
-      return [];
+      const diagnostics = rating.filter((r) => r.Score < 0);
+
+      return diagnostics.map((r, idx) => (
+        <li key={idx} className="expand" onClick={toggleExpand}>
+          <RateIcon rate={r.Score} /> {r.Name}{' '}
+          <span className="muted audit_text bold">{r.Suggestions?.length} found</span>
+          {starred && (
+            <div
+              className="data"
+              dangerouslySetInnerHTML={{
+                __html:
+                  r.Message +
+                  (r.Suggestions ? '\n\nResources:\n• ' + r.Suggestions.join('\n• ') : ''),
+              }}
+            ></div>
+          )}
+        </li>
+      ));
     }
+
+    return [];
   };
 
   if (diagnosticsList().length > 0) {
@@ -63,9 +63,9 @@ const Diagnostics = () => {
         </div>
       </div>
     );
-  } else {
-    return <Fragment></Fragment>;
   }
+
+  return <Fragment></Fragment>;
 };
 
 export default Diagnostics;
