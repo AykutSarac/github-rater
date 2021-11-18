@@ -9,9 +9,7 @@ const SearchUser = () => {
 
   return (
     <div className="search-user">
-      {!user?.login && (
-        <h2>View your GitHub profile rating and improve your profile upon results</h2>
-      )}
+      {!user?.login && <h2>View your GitHub profile rating and improve your profile upon results</h2>}
       <Input />
     </div>
   );

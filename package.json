@@ -4,25 +4,24 @@
   "homepage": "https://aykutsarac.github.io/github-rater",
   "private": true,
   "dependencies": {
-    "@reduxjs/toolkit": "^1.6.1",
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
-    "@types/jest": "^26.0.24",
-    "@types/node": "^12.20.17",
-    "@types/react": "^17.0.15",
-    "@types/react-dom": "^17.0.9",
-    "axios": "^0.21.1",
+    "@reduxjs/toolkit": "^1.6.2",
+    "@testing-library/jest-dom": "^5.15.0",
+    "@testing-library/react": "^12.1.2",
+    "@testing-library/user-event": "^13.5.0",
+    "@types/jest": "^27.0.2",
+    "@types/node": "^16.11.7",
+    "@types/react": "^17.0.35",
+    "@types/react-dom": "^17.0.11",
+    "axios": "^0.24.0",
     "node-sass": "^6.0.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "react-icons": "^4.2.0",
-    "react-redux": "^7.2.4",
+    "react-icons": "^4.3.1",
+    "react-redux": "^7.2.6",
     "react-scripts": "4.0.3",
-    "redux": "^4.1.0",
+    "redux": "^4.1.2",
     "redux-saga": "^1.1.3",
-    "typescript": "^4.3.5",
-    "web-vitals": "^1.1.2"
+    "web-vitals": "^2.1.2"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -51,7 +50,19 @@
     ]
   },
   "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "eslint": "^7.0.0",
+    "eslint-config-airbnb": "^19.0.0",
+    "eslint-config-airbnb-typescript": "^16.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-promise": "^5.1.1",
+    "eslint-plugin-react": "^7.27.0",
     "gh-pages": "^3.2.3",
-    "prettier": "2.3.2"
+    "prettier": "2.4.1",
+    "typescript": "^4.5.2"
   }
 }

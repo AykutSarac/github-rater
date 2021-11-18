@@ -39,7 +39,7 @@ export interface Repository {
   homepage: string;
   stargazers_count: number;
   watchers_count: number;
-  language: JavaScript;
+  language: string;
   forks_count: number;
   archived: boolean;
   open_issues_count: number;

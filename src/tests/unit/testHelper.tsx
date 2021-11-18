@@ -1,5 +1,5 @@
-import { render } from '@testing-library/react';
 import React, { ReactNode } from 'react';
+import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import { configureStore } from '@reduxjs/toolkit';
@@ -18,6 +18,7 @@ export const renderWithRouter = (ui: ReactNode) => {
 
   return {
     ...render(<Provider store={store}>{ui}</Provider>),
+    // eslint-disable-next-line no-restricted-globals
     history,
   };
 };

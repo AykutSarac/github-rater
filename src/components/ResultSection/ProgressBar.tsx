@@ -2,12 +2,12 @@ import React from 'react';
 
 import RateIcon from './RateIcon';
 
-export interface Props {
+export interface ProgressOptions {
   percentage: number;
   title: string;
 }
 
-const ProgressBar = ({ percentage = 0, title }: Props) => {
+const ProgressBar: React.FC<ProgressOptions> = ({ percentage = 0, title }) => {
   const [color, setColor] = React.useState('#0cce6b');
 
   React.useEffect(() => {
@@ -20,7 +20,7 @@ const ProgressBar = ({ percentage = 0, title }: Props) => {
     <div className="progressbar">
       <div className="percent">
         <svg>
-          <circle cx="60" cy="60" r="60"></circle>
+          <circle cx="60" cy="60" r="60" />
           <circle
             cx="60"
             cy="60"
@@ -30,7 +30,7 @@ const ProgressBar = ({ percentage = 0, title }: Props) => {
               stroke: `${color}`,
               fill: `${color}`,
             }}
-          ></circle>
+          />
         </svg>
         <div className="number">
           <span style={{ color }}>{percentage}</span>

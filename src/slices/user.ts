@@ -1,5 +1,6 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { ResultObject, UserState } from '../types';
+import { APIData, ResultObject, UserState } from '../types';
 
 export const initialState: UserState = {
   user: null,
@@ -18,7 +19,7 @@ const userSlice = createSlice({
       state.loading = true;
       state.error = null;
     },
-    getUserSuccess: (state, { payload }: PayloadAction<any>) => {
+    getUserSuccess: (state, { payload }: PayloadAction<APIData>) => {
       state.user = payload.user;
       state.repos = payload.repos;
       state.starred = payload.isStarred;

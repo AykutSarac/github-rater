@@ -5,8 +5,8 @@ export interface AlertProps {
   className?: string;
 }
 
-const Alert = ({ children, className }: AlertProps) => (
-  <div className={`alert ${className}`}>{children}</div>
-);
+const Alert: React.FC<AlertProps> = ({ children, className }) => {
+  return <div className={`alert ${className}`}>{children}</div>;
+};
 
 export default Alert;

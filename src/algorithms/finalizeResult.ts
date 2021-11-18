@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 import { Rating, ResultObject } from '../types';
 
 interface Suggestions {

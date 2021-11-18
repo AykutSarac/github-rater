@@ -7,9 +7,9 @@ import LabResults from './LabResults';
 import Opportunuties from './Opportunities';
 import Diagnostics from './Diagnostics';
 
-const ResultsWrapper = () => {
+const ResultsWrapper: React.FC = () => {
   const result = useSelector(getResult);
-  const convertToInt = (number: number) => parseInt(number.toFixed(0));
+  const convertToInt = (number: number) => parseInt(number.toFixed(0), 10);
 
   const getOverall = (): number => {
     if (result) {
@@ -23,9 +23,8 @@ const ResultsWrapper = () => {
       const CALC_SCORE = convertToInt((SCORE_SUM / 6) * 1.08);
 
       return CALC_SCORE && CALC_SCORE > 100 ? 100 : CALC_SCORE;
-    } else {
-      return 0;
     }
+    return 0;
   };
 
   return (

@@ -2,8 +2,8 @@ import React from 'react';
 import { configureStore } from '@reduxjs/toolkit';
 import ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-import App from './containers/App';
 import createSagaMiddleware from 'redux-saga';
+import App from './containers/App';
 import rootReducer from './slices';
 import rootSaga from './sagas';
 

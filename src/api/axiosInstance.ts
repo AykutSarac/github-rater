@@ -1,6 +1,6 @@
-import axios from 'axios';
+import axios, { AxiosInstance } from 'axios';
 
-const axiosInstance = axios.create({
+const axiosInstance: AxiosInstance = axios.create({
   baseURL: 'https://api.github.com/users',
   method: 'GET',
   responseType: 'json',

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { all, put, takeEvery } from 'redux-saga/effects';
 import { UserRating } from '../algorithms';
 import { GetUserData } from '../api';
@@ -19,7 +20,7 @@ function* setUser({ payload }: SyncAction) {
       yield put(setRating(result));
       yield put(getUserSuccess(data));
     }
-  } catch (err) {
+  } catch (err: any) {
     yield put(setError(err.response?.data.message || err.message || 'User Not Found'));
   }
 }

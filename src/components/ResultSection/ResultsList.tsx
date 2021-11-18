@@ -1,31 +1,37 @@
-import React, { Fragment } from 'react';
+/* eslint-disable react/no-array-index-key */
+import React from 'react';
 import { useSelector } from 'react-redux';
 import { getResult } from '../../selectors';
 
 import RateIcon from './RateIcon';
 
-const ResultsList = () => {
+const ResultsList: React.FC = () => {
   const results = useSelector(getResult);
-  const generateResult = (percentage: number) =>
-    percentage >= 90 ? 'success' : percentage >= 50 ? 'warning' : 'danger';
 
-  return (
-    <Fragment>
-      {results &&
-        results
+  const generateResult = (percentage: number) => {
+    if (percentage >= 90) return 'success';
+    if (percentage >= 50) return 'warning';
+    return 'danger';
+  };
+
+  if (results) {
+    return (
+      <>
+        {results
           .filter((r) => !r.Partial)
-          .map((result, idx) => (
-            <div className="metric-wrapper" key={idx}>
+          .map((result, index) => (
+            <div className="metric-wrapper" key={index}>
               <span className="metric-title">
                 <RateIcon rate={result.Score} /> {result.Name}
               </span>
-              <span className={`metric-result ${generateResult(result.Score)}`}>
-                {result.Score}
-              </span>
+              <span className={`metric-result ${generateResult(result.Score)}`}>{result.Score}</span>
             </div>
           ))}
-    </Fragment>
-  );
+      </>
+    );
+  }
+
+  return null;
 };
 
 export default ResultsList;

@@ -4,6 +4,7 @@ import finalizeResult from './finalizeResult';
 export class UserRating {
   // User Data & User Repositories (without forks)
   user: User;
+
   repos: Repository[];
 
   // Whether user starred GitHub Rater's repo or not
@@ -55,11 +56,10 @@ export class UserRating {
 
   ratePopularity() {
     // Popularity Rating
-    const STAR_RATE =
-      this.repos.map((r) => r.stargazers_count).reduce((a, b) => a + b) / this.repos.length;
+    const STAR_RATE = this.repos.map((r) => r.stargazers_count).reduce((a, b) => a + b) / this.repos.length;
 
     const rate = this.user.followers / this.repos.length + STAR_RATE;
-    const res = parseInt((rate * 15).toFixed(0));
+    const res = parseInt((rate * 15).toFixed(0), 10);
     this.rating.userPopularity = res >= 100 ? 100 : res;
   }
 
@@ -69,7 +69,7 @@ export class UserRating {
     const TOTAL_FORKS = this.repos.map((r) => r.forks_count).reduce((a, b) => a + b);
 
     const rate = (TOTAL_STARS + TOTAL_FORKS * 1.2) / this.repos.length;
-    const res = parseInt((rate * 16).toFixed(0));
+    const res = parseInt((rate * 16).toFixed(0), 10);
     this.rating.repoPopularity = res >= 100 ? 100 : res;
   }
 
@@ -78,7 +78,7 @@ export class UserRating {
     const repoDescLength = this.repos.filter((r) => r.description?.split(' ').length > 4);
 
     const rate = this.repos.length / repoDescLength.length;
-    const res = parseInt((100 / rate).toFixed(0));
+    const res = parseInt((100 / rate).toFixed(0), 10);
     this.rating.repoDescriptionRating = res >= 100 ? 100 : res;
   }
 
@@ -87,7 +87,7 @@ export class UserRating {
     const webpageExist = this.repos.map((r) => r.homepage).filter((r) => r);
     const rate = (webpageExist.length / this.repos.length) * 100;
 
-    const res = parseInt((rate * 1.8).toFixed(0));
+    const res = parseInt((rate * 1.8).toFixed(0), 10);
     this.rating.webpageRating = res >= 100 ? 100 : res;
   }
 
@@ -110,9 +110,7 @@ export class UserRating {
     this.rateWebpage();
     this.rateBacklinks();
 
-    const repoDescLength = this.repos.filter(
-      (r) => r.description?.split(' ').length < 5 || !r.description,
-    );
+    const repoDescLength = this.repos.filter((r) => r.description?.split(' ').length < 5 || !r.description);
 
     const notExist = [
       { type: this.rating.bioExists, Name: 'Biography' },
@@ -127,11 +125,11 @@ export class UserRating {
 
     const archive = this.repos
       .filter((r) => {
-        const today = new Date().getTime();
-        const updated_at = new Date(r.updated_at).getTime();
+        const TODAY = new Date().getTime();
+        const UPDATED_AT = new Date(r.updated_at).getTime();
 
         const DAY_TO_MS = 1000 * 60 * 60 * 24;
-        const DAYS_DIFF = Math.ceil((today - updated_at) / DAY_TO_MS);
+        const DAYS_DIFF = Math.ceil((TODAY - UPDATED_AT) / DAY_TO_MS);
 
         return DAYS_DIFF > 240;
       })

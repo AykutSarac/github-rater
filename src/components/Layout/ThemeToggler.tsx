@@ -1,7 +1,7 @@
 import React from 'react';
 import { FaMoon, FaSun } from 'react-icons/fa';
 
-const ThemeToggler = () => {
+const ThemeToggler: React.FC = () => {
   const elem = React.useRef<HTMLDivElement | null>(null);
   const themeData = localStorage.getItem('theme') || 'light';
   const [theme, setTheme] = React.useState('light');
@@ -34,7 +34,7 @@ const ThemeToggler = () => {
 
   return (
     <div className="theme-toggler">
-      <div className="picker" ref={elem}></div>
+      <div className="picker" ref={elem} />
       <FaSun size={20} className="icon" onClick={onClick} />
       <FaMoon size={20} className="icon" onClick={onClick} />
     </div>

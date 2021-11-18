@@ -6,7 +6,7 @@ import ResultsExplainer from './ResultsExplainer';
 
 import '../styles/index.scss';
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
       <Navbar />
@@ -15,6 +15,6 @@ function App() {
       <ResultsExplainer />
     </div>
   );
-}
+};
 
 export default App;

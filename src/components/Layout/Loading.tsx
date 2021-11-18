@@ -1,5 +1,7 @@
 import React from 'react';
 
-const Loading = () => <progress className="loading"></progress>;
+const Loading: React.FC = () => {
+  return <progress className="loading" />;
+};
 
 export default Loading;

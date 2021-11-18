@@ -7,7 +7,7 @@ import NotFound from '../components/Layout/NotFound';
 import Alert from '../components/Layout/Alert';
 import Loading from '../components/Layout/Loading';
 
-const Results = () => {
+const Results: React.FC = () => {
   const { user, error, rating, loading } = useSelector(getStates);
 
   return (
