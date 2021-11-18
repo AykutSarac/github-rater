@@ -15,7 +15,7 @@ export const GetUserData = async (userName: string): Promise<APIData> => {
 
     if (forkedRepos.length === 0) throw Error("Couldn't find any public repository.");
 
-    const stars: AxiosResponse<Repository[]> = await axiosInstance.get(`/${userName}/starred`);
+    const stars: AxiosResponse<Repository[]> = await axiosInstance.get(`/${userName}/starred?&per_page=250`);
     const starredRepos = stars.data;
 
     // Check if GitHub rater is starred
