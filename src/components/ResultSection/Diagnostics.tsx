@@ -7,10 +7,8 @@ const Diagnostics: React.FC = () => {
   const { rating, starred, user } = useSelector(getStates);
 
   const toggleExpand = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (starred && e.target === e.currentTarget) {
-      const target = (e.target as HTMLLIElement).querySelector('div');
-
-      if (target) target.classList.toggle('show');
+    if (e.target === e.currentTarget) {
+      e.currentTarget.children[2].classList.toggle('show');
     }
   };
 
@@ -19,18 +17,20 @@ const Diagnostics: React.FC = () => {
       const diagnostics = rating.filter((r) => r.Score < 0);
 
       return diagnostics.map((r, index) => (
-        <div role="button" tabIndex={index} key={index} className="expand" onClick={toggleExpand}>
-          <RateIcon rate={r.Score} /> {r.Name}{' '}
-          <span className="muted audit_text bold">{r.Suggestions?.length} found</span>
-          {starred && (
-            <div
-              className="data"
-              dangerouslySetInnerHTML={{
-                __html: r.Message + (r.Suggestions ? `\n\nResources:\n• ${r.Suggestions.join('\n• ')}` : ''),
-              }}
-            />
-          )}
-        </div>
+        <li key={index}>
+          <div role="button" className="expand" tabIndex={index} onClick={toggleExpand}>
+            <RateIcon rate={r.Score} /> {r.Name}{' '}
+            <span className="muted audit_text bold">{r.Suggestions?.length} found</span>
+            {starred && (
+              <div
+                className="data"
+                dangerouslySetInnerHTML={{
+                  __html: r.Message + (r.Suggestions ? `\n\nResources:\n• ${r.Suggestions.join('\n• ')}` : ''),
+                }}
+              />
+            )}
+          </div>
+        </li>
       ));
     }
 

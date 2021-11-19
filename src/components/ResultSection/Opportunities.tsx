@@ -7,18 +7,18 @@ const Opportunuties: React.FC = () => {
   const { rating, starred, user } = useSelector(getStates);
 
   const toggleExpand = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (starred && e.target === e.currentTarget) {
-      const target = e.target as HTMLLIElement;
-      target.children[1].classList.toggle('show');
+    if (e.target === e.currentTarget) {
+      e.currentTarget.children[1].classList.toggle('show');
     }
   };
 
   const opportunityList = () => {
     if (rating) {
-      return rating
-        .filter((r) => r.Score < 90 && !r.Partial)
-        .map((r, index) => (
-          <div role="button" tabIndex={index} key={index} className="expand" onClick={toggleExpand}>
+      const ratings = rating.filter((r) => r.Score < 90 && !r.Partial);
+
+      return ratings.map((r, index) => (
+        <li key={index}>
+          <div role="button" className="expand" tabIndex={index} onClick={toggleExpand}>
             <RateIcon rate={r.Score} /> {r.Name}
             {starred && (
               <div
@@ -29,7 +29,8 @@ const Opportunuties: React.FC = () => {
               />
             )}
           </div>
-        ));
+        </li>
+      ));
     }
     return [];
   };

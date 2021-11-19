@@ -3,6 +3,10 @@
   width: 100%;
   position: relative;
 
+  .expand {
+    padding: 0.6em 0.3em;
+  }
+
   .block-message {
     position: absolute;
     text-align: center;
@@ -49,7 +53,6 @@
 
     li {
       width: 100%;
-      padding: 0.6em 0.3em;
       border-top: 1px solid $dtext-2;
       font-weight: 500;
       cursor: pointer;
