@@ -28,7 +28,7 @@ module.exports = {
   plugins: ['react', '@typescript-eslint'],
   rules: {
     'prettier/prettier': ['error', { endOfLine: 'auto' }],
-    'linebreak-style': ['error', 'windows'],
+    'linebreak-style': ['error', 'unix'],
     'jsx-a11y/click-events-have-key-events': 'off',
     'jsx-a11y/label-has-associated-control': 'off',
     'object-curly-newline': 'off',
