@@ -3,8 +3,8 @@ import { render } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import createSagaMiddleware from 'redux-saga';
 import { configureStore } from '@reduxjs/toolkit';
-import rootReducer from '../../slices';
-import rootSaga from '../../sagas';
+import rootReducer from '../../src/slices';
+import rootSaga from '../../src/sagas';
 
 export const renderWithRouter = (ui: ReactNode) => {
   const sagaMiddleware = createSagaMiddleware();

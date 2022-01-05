@@ -33,7 +33,9 @@ const ProgressBar: React.FC<ProgressOptions> = ({ percentage = 0, title }) => {
           />
         </svg>
         <div className="number">
-          <span style={{ color }}>{percentage}</span>
+          <span style={{ color }} data-test="overall-score">
+            {percentage}
+          </span>
         </div>
       </div>
       <h2 className="title">{title}</h2>

@@ -1,6 +1,6 @@
 import React from 'react';
 import '@testing-library/jest-dom';
-import ResultsList from '../../../../components/ResultSection/ResultsList';
+import ResultsList from '../../../../src/components/ResultSection/ResultsList';
 import { renderWithRouter } from '../../testHelper';
 
 const wrap = () => renderWithRouter(<ResultsList />);

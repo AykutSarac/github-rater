@@ -1,11 +1,11 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import ProgressBar, { Props } from '../../../../components/ResultSection/ProgressBar';
+import ProgressBar from '../../../../src/components/ResultSection/ProgressBar';
 
 describe('<ProgressBar />', () => {
   it('renders the ProgressBar component', () => {
-    const props: Props = {
+    const props = {
       percentage: 25,
       title: 'Test',
     };

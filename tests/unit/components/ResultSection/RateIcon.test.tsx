@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import RateIcon from '../../../../components/ResultSection/RateIcon';
+import RateIcon from '../../../../src/components/ResultSection/RateIcon';
 
 describe('<RateIcon />', () => {
   it('renders the RateIcon component with success class', () => {
