@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Loading from '../../../../src/components/Layout/Loading';
+import Loading from '../../../../components/Layout/Loading';
 
 describe('<Loading />', () => {
   it('renders the Loading component', () => {

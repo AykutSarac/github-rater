@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import Alert from '../../../../src/components/Layout/Alert';
+import Alert from '../../../../components/Layout/Alert';
 
 describe('<Alert />', () => {
   it('renders the Alert component', () => {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { fireEvent, render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import ThemeToggler from '../../../../src/components/Layout/ThemeToggler';
+import ThemeToggler from '../../../../components/Layout/ThemeToggler';
 
 describe('<ThemeToggler />', () => {
   it('renders the ThemeToggler component', () => {

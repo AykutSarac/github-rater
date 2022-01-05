@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import ProgressBar from '../../../../src/components/ResultSection/ProgressBar';
+import ProgressBar from '../../../../components/ResultSection/ProgressBar';
 
 describe('<ProgressBar />', () => {
   it('renders the ProgressBar component', () => {

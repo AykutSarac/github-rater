@@ -1,7 +1,7 @@
 import React from 'react';
 import { render } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import NotFound from '../../../../src/components/Layout/NotFound';
+import NotFound from '../../../../components/Layout/NotFound';
 
 describe('<NotFound />', () => {
   it('renders the NotFound component', () => {
