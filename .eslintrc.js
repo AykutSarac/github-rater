@@ -45,6 +45,7 @@ module.exports = {
     'react/prop-types': 'off',
     'arrow-parens': 'off',
     'react/jsx-one-expression-per-line': 'off',
+    'react/require-default-props': 'off',
     'import/prefer-default-export': 'off',
     'import/no-extraneous-dependencies': ['error', { devDependencies: true }],
     'no-use-before-define': 'off',
