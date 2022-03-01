@@ -1,21 +1,14 @@
 {
   "files": {
-    "main.css": "/github-rater/static/css/main.6ba3cb33.chunk.css",
-    "main.js": "/github-rater/static/js/main.bc9ed643.chunk.js",
-    "main.js.map": "/github-rater/static/js/main.bc9ed643.chunk.js.map",
-    "runtime-main.js": "/github-rater/static/js/runtime-main.900f67a6.js",
-    "runtime-main.js.map": "/github-rater/static/js/runtime-main.900f67a6.js.map",
-    "static/js/2.b110a104.chunk.js": "/github-rater/static/js/2.b110a104.chunk.js",
-    "static/js/2.b110a104.chunk.js.map": "/github-rater/static/js/2.b110a104.chunk.js.map",
+    "main.css": "/github-rater/static/css/main.f1e25acb.css",
+    "main.js": "/github-rater/static/js/main.34ba6d75.js",
+    "static/media/404.svg": "/github-rater/static/media/404.04bf1677a40b53e2e27ec788b8c411e5.svg",
     "index.html": "/github-rater/index.html",
-    "static/css/main.6ba3cb33.chunk.css.map": "/github-rater/static/css/main.6ba3cb33.chunk.css.map",
-    "static/js/2.b110a104.chunk.js.LICENSE.txt": "/github-rater/static/js/2.b110a104.chunk.js.LICENSE.txt",
-    "static/media/404.04bf1677.svg": "/github-rater/static/media/404.04bf1677.svg"
+    "main.f1e25acb.css.map": "/github-rater/static/css/main.f1e25acb.css.map",
+    "main.34ba6d75.js.map": "/github-rater/static/js/main.34ba6d75.js.map"
   },
   "entrypoints": [
-    "static/js/runtime-main.900f67a6.js",
-    "static/js/2.b110a104.chunk.js",
-    "static/css/main.6ba3cb33.chunk.css",
-    "static/js/main.bc9ed643.chunk.js"
+    "static/css/main.f1e25acb.css",
+    "static/js/main.34ba6d75.js"
   ]
 }
