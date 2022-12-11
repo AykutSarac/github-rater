@@ -5,26 +5,40 @@
   gap: 1.5em;
   border-radius: 2em;
   background: #383838;
-  padding: 0.6em 1em;
+  width: 60px;
+  height: 28px;
   position: relative;
 
   .picker {
     position: absolute;
     content: '';
-    width: 26px;
-    height: 26px;
+    width: 22px;
+    height: 22px;
     background: $secondary-1;
     left: 0;
-    top: 0.4em;
-    transform: translate(40%);
+    top: 50%;
+    transform: translateY(-50%);
     border-radius: 1em;
     transition: 0.4s;
     filter: drop-shadow(0 0 2px #121212);
+    z-index: 11;
+    cursor: pointer;
   }
 
   .icon {
-    color: rgba(255, 255, 0, 0.637);
     cursor: pointer;
     -webkit-tap-highlight-color: transparent;
+    box-sizing: content-box;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    &.sun {
+      left: 8px;
+      fill: yellow;
+    }
+    &.moon {
+      right: 8px;
+      fill: #fff;
+    }
   }
 }
