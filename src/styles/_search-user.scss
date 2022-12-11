@@ -9,7 +9,9 @@
   padding: 4em 2em 1.5em;
   color: $secondary-1;
   box-shadow: 0 5px 5px rgba(170, 170, 170, 0.6);
-
+  @include forMobile {
+    padding: 4em $mobile-padding 1.5em;
+  }
   @include dark {
     background: #1f1f1f;
     box-shadow: 0 5px 5px rgba(17, 17, 17, 0.6);
@@ -17,11 +19,17 @@
 
   h2 {
     margin-bottom: 3em;
+    @include forMobile {
+      margin-bottom: 2em;
+    }
   }
 
   input[type='text'] {
     font-size: 14px;
     width: 50%;
+    @include forMobile {
+      width: 70%;
+    }
     margin: 0 auto 0;
     padding: 0.8em 1em;
     outline: none;
