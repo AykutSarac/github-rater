@@ -26,7 +26,7 @@
         transform: translate(5px, 5px);
         stroke-dasharray: 377;
         stroke-dashoffset: 377;
-
+        animation: circleDashEffect 0.8s ease-out;
         &:nth-child(1) {
           stroke-dashoffset: 0;
           stroke: none;
