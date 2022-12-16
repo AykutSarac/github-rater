@@ -72,6 +72,7 @@ module.exports = {
     '@typescript-eslint/no-shadow': 'error',
     'react/no-danger': 'off',
     'react/no-array-index-key': 'off',
+    'no-console': 'off',
     'react/function-component-definition': [
       2,
       {
