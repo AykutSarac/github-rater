@@ -32,7 +32,9 @@ export class UserRating {
     const TOTAL_FORKS = repos.map((r) => r.forks_count).reduce((a, b) => a + b);
 
     this.user = user;
-    this.repos = repos.filter((r) => !r.fork);
+    this.repos = repos.filter((r: Repository) => {
+      return r.name !== r.owner.login && !r.fork;
+    });
     this.isStarred = isStarred;
 
     this.rating.totalStars = TOTAL_STARS;

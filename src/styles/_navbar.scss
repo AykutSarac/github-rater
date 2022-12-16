@@ -2,7 +2,9 @@
   padding: 0.5em 2em;
   display: flex;
   justify-content: space-between;
-
+  @include forMobile {
+    padding: 0.5em $mobile-padding;
+  }
   a {
     color: $muted;
     display: flex;

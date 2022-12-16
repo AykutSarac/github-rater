@@ -23,6 +23,7 @@ $dheading: #c9c9c9;
 $dtext: #b1b1b1;
 $dtext-2: #dadada;
 
+$mobile-padding: 1.5em;
 @mixin light() {
   @media (prefers-color-scheme: light) {
     @at-root #{selector-nest(':root:not([data-theme=light]):not([data-theme=dark])', &)} {

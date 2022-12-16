@@ -12,7 +12,9 @@
     max-width: 768px;
     line-height: 1.5;
     color: $muted;
-
+    @include forMobile {
+      padding: 2em $mobile-padding;
+    }
     .header {
       font-weight: bold;
       display: block;
